@@ -1,0 +1,9 @@
+alias gnp='git --no-pager'
+alias mygit='git log --author="Kevin Murani <kevin.murani@booking.com>"'
+alias gti='git'
+alias gut='git'
+alias gs='git fetch && git status'
+alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
+alias vim=/usr/local/Cellar/vim/8.1.2150/bin/vim
+alias reply=/usr/local/bin/reply
+
