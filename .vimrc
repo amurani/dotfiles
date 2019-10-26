@@ -19,7 +19,13 @@ catch
 endtry
 
 " plugin Vundle: START
-set rtp+=~/.vim/bundle/vundle/vundle.vim
+try
+    set rtp+=~/.vim/bundle/vundle/vundle.vim
+catch
+    echo "We need vundle to be install manuall cause chicken and egg 🐣 ¯\_(ツ)_/¯"
+    echo "Go to: https://github.com/VundleVim/Vundle.vim to get started"
+endtry
+
 call vundle#begin()
 Plugin 'gmarik/vundle'  " let vundle manage vundle
 Plugin 'kien/ctrlp.vim' " fuzzy find files
