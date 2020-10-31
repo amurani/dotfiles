@@ -51,6 +51,13 @@ Plugin 'junegunn/vim-easy-align'
 Plugin 'powerline/powerline-fonts'
 Plugin 'zivyangll/git-blame.vim'
 Plugin 'tarekbecker/vim-yaml-formatter'
+Plugin 'udalov/kotlin-vim'
+Plugin 'https://github.com/Shadowsith/kotlincomplete.vim'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'tpope/vim-rails'
+
+Plugin 'sudar/vim-arduino-syntax'
+Plugin 'sudar/vim-arduino-snippets'
 call vundle#end()
 " plugin Vundle: END
 
@@ -74,6 +81,9 @@ set tabstop=4
 autocmd FileType javascript setlocal shiftwidth=2 softtabstop=2 tabstop=2
 autocmd FileType yaml setlocal shiftwidth=2 softtabstop=2 tabstop=2
 
+autocmd FileType ruby setlocal expandtab shiftwidth=2 tabstop=2
+autocmd FileType eruby setlocal expandtab shiftwidth=2 tabstop=2
+
 syntax enable
 syntax on
 
@@ -92,6 +102,7 @@ au BufReadPost *.json set syntax=json
 au BufReadPost *.inc set syntax=tmpl
 au BufReadPost *.tmpl set syntax=tmpl
 au BufReadPost *.pp set syntax=python
+au BufReadPost *.config set syntax=yaml
 
 let g:javascript_plugin_flow = 1
 let g:jsx_ext_required = 0
@@ -105,7 +116,15 @@ let g:JSHintHighlightErrorLine = 1
 " let g:syntastic_pm_checkers = ['perlcritic']
 " let g:syntastic_check_on_open = 1
 
-let b:ale_linters = [ 'perlcritic', 'eslint' ]
+let g:ale_linters = {
+\   'javascript': ['eslint'],
+\   'perl': ['perlcritic'],
+\   'ruby': ['standardrb', 'rubocop'],
+\}
+let g:ale_linters_explicit = 1
+let g:airline#extensions#ale#enabled = 1
+let g:ale_sign_column_always = 1
+let g:ale_set_highlights = 0
 
 let g:indentLine_char = '.'
 let g:indentLine_color_tty_dark = 1
