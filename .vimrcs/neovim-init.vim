@@ -28,8 +28,10 @@ Plug 'pangloss/vim-javascript' " javascript syntax highlighting
 Plug 'maxmellon/vim-jsx-pretty' " jsx syntax highlighting
 Plug 'leafgarland/typescript-vim' " typescript syntax highlighting
 Plug 'peitalin/vim-jsx-typescript' " tsx syntax highlighting
-Plug 'ryanoasis/vim-devicons' " icons for files
 Plug 'itchyny/lightline.vim' " A light and configurable statusline/tabline plugin
+Plug 'jiangmiao/auto-pairs' "  adds a closing bracket, paren, quote, etc
+Plug 'machakann/vim-sandwich' " add/delete/replace surroundings of a sandwiched textobject
+Plug 'airblade/vim-gitgutter' " git diff in the gutter
 
 call plug#end()
 " ------------------ /Plugin Management -----------------
