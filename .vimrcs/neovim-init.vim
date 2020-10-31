@@ -32,7 +32,8 @@ Plug 'itchyny/lightline.vim'                            " A light and configurab
 Plug 'jiangmiao/auto-pairs'                             " adds a closing bracket, paren, quote, etc
 Plug 'machakann/vim-sandwich'                           " add/delete/replace surroundings of a sandwiched textobject
 Plug 'airblade/vim-gitgutter'                           " git diff in the gutter
-
+Plug 'honza/vim-snippets'                               " snippets files for various programming languages
+Plug 'mhinz/vim-startify'                               " default start screen on launch
 call plug#end()
 " ------------------ /Plugin Management -----------------
 

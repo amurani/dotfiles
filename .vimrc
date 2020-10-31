@@ -24,6 +24,7 @@ set nowritebackup              " turns off back based version control (in favor 
 set noswapfile                 " Turn swap files off (in favor of version control e.g. git)
 set cursorline                 " set to highlight current line with cursor
 set spell spelllang=en_us      " enables spell checking
+set clipboard=unnamedplus      " enables copy paste to work between vims and all others
 
 " *************** File type specific tab settings *****************
 autocmd FileType javascript setlocal shiftwidth=2 softtabstop=2 tabstop=2
