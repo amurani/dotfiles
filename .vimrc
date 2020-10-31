@@ -1,46 +1,47 @@
 " --------------- Basic Config ------------------
-filetype plugin indent on
+filetype plugin indent on      " enable file type detection with loading of file type specific plugin and indentation
+syntax enable                  " enable syntax highlighting
 
 set backspace=eol,start,indent " Configure backspace so it acts as it should act
-set whichwrap+=<,>,h,l
-set encoding=utf-8
-set nofoldenable " all folds are open
-set hidden
-set expandtab
-set smarttab
-set autoread
-set number " line numbers
-set numberwidth=3
-set wildmenu " command-line completion operates"
+set encoding=utf-8             " sets the character encoding to be used"
+set nofoldenable               " all folds are open
+set nowrap                     " prevent lines from being wrapped
+set hidden                     " set to enable multiple buffers
+set autoread                   " set to detect file changes from outside of vim
+set number                     " show line numbers
+set numberwidth=3              " set minimum columns used for line numbers
+set wildmenu                   " command-line completion operates"
+set expandtab                  " set to use spaces over tabs
+set shiftwidth=4               " set indentation levels
+set softtabstop=4              " set whitespace to be added/remove by tab and backspace
+set tabstop=4                  " set column width for tab character
+set smarttab                   " set to rely on above ab settings when Tab is hit
+set laststatus=2               " Configuration for vim airline (always show)
+set hlsearch                   " highlight search matches"
+set background=dark            " tells vim to use colors that look good on a dark background
+set nobackup                   " Turn backups off (in favor of version control e.g. git)
+set nowritebackup              " turns off back based version control (in favor of version control e.g. git)
+set noswapfile                 " Turn swap files off (in favor of version control e.g. git)
+set cursorline                 " set to highlight current line with cursor
+set spell spelllang=en_us      " enables spell checking
 
-set shiftwidth=4
-set softtabstop=4
-set tabstop=4
-
-set laststatus=2 " Configuration for vim airline (always show)
-set hlsearch " highlight search matches"
-
-" Turn backups off as most of the stuuf I work on is in git
-set nobackup
-set nowb
-set noswapfile
-
-syntax enable
-syntax on
-
+" *************** File type specific tab settings *****************
 autocmd FileType javascript setlocal shiftwidth=2 softtabstop=2 tabstop=2
 autocmd FileType typescript setlocal shiftwidth=2 softtabstop=2 tabstop=2
 autocmd FileType yaml setlocal shiftwidth=2 softtabstop=2 tabstop=2
 autocmd FileType ruby setlocal expandtab shiftwidth=2 tabstop=2
 autocmd FileType eruby setlocal expandtab shiftwidth=2 tabstop=2
+" *************** /File type specific tab settings *****************
 
-au BufReadPost *.comp set syntax=mason
-au BufReadPost *.html set syntax=mason
-au BufReadPost *.json set syntax=json
-au BufReadPost *.inc set syntax=tmpl
-au BufReadPost *.tmpl set syntax=tmpl
-au BufReadPost *.pp set syntax=python
-au BufReadPost *.config set syntax=yaml
+" *************** File type specific syntax settings *****************
+autocmd BufReadPost *.comp set syntax=mason
+autocmd BufReadPost *.html set syntax=mason
+autocmd BufReadPost *.json set syntax=json
+autocmd BufReadPost *.inc set syntax=tmpl
+autocmd BufReadPost *.tmpl set syntax=tmpl
+autocmd BufReadPost *.pp set syntax=python
+autocmd BufReadPost *.config set syntax=yaml
+" *************** /File type specific syntax settings *****************
 
 " --------------- /Basic Config -----------------
 
@@ -54,7 +55,6 @@ set rtp+=~/.vim_runtime/
 " --------------- /Editor Specific Config -----------------
 
 " --------------- Plugin Config: ayu-theme/ayu-vim -----------------
-set background=dark
 if (has("termguicolors"))
     set termguicolors
 endif
@@ -89,7 +89,6 @@ try
     source ~/.vim_runtime/vimrcs/perltidyrc.vim
     nnoremap <silent> tt :%!perltidy -q<Enter>
     vnoremap <silent> tt :!perltidy -q<Enter>
-
 catch
 endtry
 " --------------- /Custom Plugin Config: pertidy -----------------
