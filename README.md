@@ -6,11 +6,17 @@
 * Run `~/.dotfiles/setup/sh && source ~/.zshrc`
 * Go do your thing ...
 
-### Other useful tools to make life easier (like X ... but better)
+### Other useful tools to make life easier
+
+#### (like X ... but better)
 
 * [BAT](https://github.com/sharkdp/bat) - like `cat` but ...
 * [HTTPie](https://httpie.io/) - like `curl` but ...
 * [ack](https://beyondgrep.com/) - like `grep` but ...
+
+#### others
+
+* [mdless](https://github.com/ttscoff/mdless) - markdown files preview in terminal
 
 ### Versions Managers
 * [Perl](https://perlbrew.pl/)
