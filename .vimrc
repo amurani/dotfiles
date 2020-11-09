@@ -29,19 +29,21 @@ set clipboard=unnamedplus      " enables copy paste to work between vims and all
 " *************** File type specific tab settings *****************
 autocmd FileType javascript setlocal shiftwidth=2 softtabstop=2 tabstop=2
 autocmd FileType typescript setlocal shiftwidth=2 softtabstop=2 tabstop=2
-autocmd FileType yaml setlocal shiftwidth=2 softtabstop=2 tabstop=2
-autocmd FileType ruby setlocal expandtab shiftwidth=2 tabstop=2
-autocmd FileType eruby setlocal expandtab shiftwidth=2 tabstop=2
+autocmd FileType yaml       setlocal shiftwidth=2 softtabstop=2 tabstop=2
+autocmd FileType ruby       setlocal expandtab shiftwidth=2 tabstop=2
+autocmd FileType eruby      setlocal expandtab shiftwidth=2 tabstop=2
 " *************** /File type specific tab settings *****************
 
 " *************** File type specific syntax settings *****************
-autocmd BufReadPost *.comp set syntax=mason
-autocmd BufReadPost *.html set syntax=mason
-autocmd BufReadPost *.json set syntax=json
-autocmd BufReadPost *.inc set syntax=tmpl
-autocmd BufReadPost *.tmpl set syntax=tmpl
-autocmd BufReadPost *.pp set syntax=python
-autocmd BufReadPost *.config set syntax=yaml
+autocmd BufReadPost *.comp    set syntax=mason
+autocmd BufReadPost *.html    set syntax=mason
+autocmd BufReadPost *.json    set syntax=json
+autocmd BufReadPost *.inc     set syntax=tmpl
+autocmd BufReadPost *.tmpl    set syntax=tmpl
+autocmd BufReadPost *.pp      set syntax=python
+autocmd BufReadPost *.config  set syntax=yaml
+autocmd BufReadPost *cpanfile set syntax=perl
+autocmd BufReadPost .env*     set syntax=sh
 " *************** /File type specific syntax settings *****************
 
 " --------------- /Basic Config -----------------
