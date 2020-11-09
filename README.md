@@ -17,6 +17,7 @@
 #### others
 
 * [mdless](https://github.com/ttscoff/mdless) - markdown files preview in terminal
+* [the_silver_searcher](https://github.com/ggreer/the_silver_searcher) - code searching tool simalr to `ack`
 
 ### Versions Managers
 * [Perl](https://perlbrew.pl/)
