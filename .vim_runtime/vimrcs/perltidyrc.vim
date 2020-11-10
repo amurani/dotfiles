@@ -1,3 +1,5 @@
+" Reference: https://github.com/rdunklau/vim-perltidy
+
 if exists('g:perltidy')
     finish
 en
@@ -34,11 +36,12 @@ function!s:PerlTidy()
     call setpos(".", prevcur)
     call setpos("'x", prevx)
     call setpos("'y", prevy)
+    set nopaste " adding this because otherwise if messes up with the my perl language server
 endfunction
 
 command! -nargs=* -range -bang PerlTidy <line1>,<line2>call s:PerlTidy()
 
 vnoremap :call PerlTidy() t
-au BufWritePre *.p[lm],*.t call s:PerlTidy()
+autocmd BufWritePre *.p[lm],*.t call s:PerlTidy()
 
 let g:perltidy = 1
