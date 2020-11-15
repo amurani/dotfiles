@@ -36,7 +36,7 @@ Plug 'honza/vim-snippets'                                     " snippets files f
 Plug 'mhinz/vim-startify'                                     " default start screen on launch
 Plug 'junegunn/goyo.vim'                                      " distraction free mode
 Plug 'ryuta69/coc-perl', {'do': 'yarn install && yarn build'} " Perl Language Server
-Plug 'mg979/vim-visual-multi', {'branch': 'master'}           " multi-line editing a la Sublime text
+" Plug 'mg979/vim-visual-multi', {'branch': 'master'}           " multi-line editing a la Sublime text
 
 call plug#end()
 " ------------------ /Plugin Management -----------------
