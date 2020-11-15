@@ -75,7 +75,9 @@ let NERDTreeShowHidden=1
 " --------------- /Plugin Config: NERDTree----------------
 
 " --------------- Plugin Config: sbdchd/neoformat -----------------
-autocmd BufWritePre *.js Neoformat " have Neoformat run Prettier on save
+" have Neoformat run Prettier on save
+autocmd BufWritePre *.js,*.ts     Neoformat " javascript, typescript
+autocmd BufWritePre *.pl,*.pm,*.t Neoformat " perl
 " --------------- /Plugin Config: sbdchd/neoformat -----------------
 
 " --------------- Plugin Config: webdevel/tabulous -----------------
