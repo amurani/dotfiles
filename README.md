@@ -24,4 +24,6 @@
 * [Perl](https://perlbrew.pl/)
 * [Node JS](https://github.com/nvm-sh/nvm)
 * [Ruby](https://rvm.io/)
+* [Python](https://github.com/pyenv/pyenv)
 
+* [asdf](https://asdf-vm.com/#/) - one tool to rule them all ¯\_(ツ)_/¯
