@@ -5,13 +5,14 @@
 " verion. That one's shit
 
 " ------------------ Plugin Management ------------------
-try
-    set rtp+=~/.vim/bundle/vundle/vundle.vim
-catch
-    echo "We need vundle to be install manuall cause chicken and egg 🐣 ¯\_(ツ)_/¯"
-    echo "Go to: https://github.com/VundleVim/Vundle.vim to get started"
-endtry
 
+" automated installation of vundle if not installed
+if empty(glob('~/.vim/bundle/vundle/vundle.vim'))
+    silent !git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/vundle/vundle.vim
+    autocmd VimEnter * PlugInstall | source ~/.vimrc
+endif
+
+set rtp+=~/.vim/bundle/vundle/vundle.vim
 call vundle#begin()
 
 Plugin 'gmarik/vundle'                            " let vundle manage vundle
