@@ -25,6 +25,10 @@ set noswapfile                 " Turn swap files off (in favor of version contro
 set cursorline                 " set to highlight current line with cursor
 set spell spelllang=en_us      " enables spell checking
 set clipboard=unnamedplus      " enables copy paste to work between vims and all others
+set cmdheight=2                " Give more space for displaying messages.
+set updatetime=300             " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable delays and poor user experience.
+set shortmess+=c               " Don't pass messages to |ins-completion-menu|.
+
 
 " *************** File type specific tab settings *****************
 autocmd FileType javascript setlocal shiftwidth=2 softtabstop=2 tabstop=2
