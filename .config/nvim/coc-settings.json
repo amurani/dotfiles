@@ -12,7 +12,7 @@
   "tsserver.enableJavascript": false,
   "coc.preferences.diagnostic.virtualText": true,
   "diagnostic.errorSign": "✘",
-  "diagnostic.warningSign": "",
-  "diagnostic.infoSign": "",
+  "diagnostic.warningSign": "⚠",
+  "diagnostic.infoSign": "ℹ",
   "graphql.filetypes": ["graphql"]
 }
