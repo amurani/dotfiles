@@ -24,11 +24,6 @@ set nowritebackup              " turns off back based version control (in favor 
 set noswapfile                 " Turn swap files off (in favor of version control e.g. git)
 set cursorline                 " set to highlight current line with cursor
 set spell spelllang=en_us      " enables spell checking
-set clipboard=unnamedplus      " enables copy paste to work between vims and all others
-set cmdheight=2                " Give more space for displaying messages.
-set updatetime=300             " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable delays and poor user experience.
-set shortmess+=c               " Don't pass messages to |ins-completion-menu|.
-
 
 " *************** File type specific tab settings *****************
 autocmd FileType javascript setlocal shiftwidth=2 softtabstop=2 tabstop=2
@@ -80,8 +75,8 @@ let NERDTreeShowHidden=1
 
 " --------------- Plugin Config: sbdchd/neoformat -----------------
 " have Neoformat run Prettier on save
-autocmd BufWritePre *.js,*.ts          Neoformat " javascript, typescript
-autocmd BufWritePre *.pl,*.pm,*.t,*.PL Neoformat " perl
+" autocmd BufWritePre *.js,*.ts          Neoformat " javascript, typescript
+" autocmd BufWritePre *.pl,*.pm,*.t,*.PL Neoformat " perl
 " --------------- /Plugin Config: sbdchd/neoformat -----------------
 
 " --------------- Plugin Config: webdevel/tabulous -----------------
