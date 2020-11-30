@@ -48,6 +48,7 @@ Plug 'heavenshell/vim-jsdoc', {
   \ 'do': 'make install'
 \}                                                            " JSDoc block generator
 Plug 'tpope/vim-abolish'                                      " plugin for working with variants of a word
+Plug 'tomtom/tcomment_vim'                                    " tcomment provides easy to use, file-type sensible comments for Vim
 
 call plug#end()
 " ------------------ /Plugin Management -----------------
