@@ -29,7 +29,6 @@ Plug 'webdevel/tabulous'                                      " tab labels
 Plug 'Yggdroot/indentLine'                                    " visually show indentation levels for code indented with spaces
 Plug 'https://github.com/prettier/vim-prettier'               " A vim plugin wrapper for prettier, pre-configured with custom default prettier settings.
 Plug 'ntpeters/vim-better-whitespace'                         " causes all trailing whitespace characters to be highlighted
-Plug 'sbdchd/neoformat'                                       " plugin for formatting code
 Plug 'neoclide/coc.nvim', {'branch': 'release'}               " make vim act like an IDE
 Plug 'pangloss/vim-javascript'                                " javascript syntax highlighting
 Plug 'maxmellon/vim-jsx-pretty'                               " jsx syntax highlighting
@@ -43,10 +42,12 @@ Plug 'honza/vim-snippets'                                     " snippets files f
 Plug 'mhinz/vim-startify'                                     " default start screen on launch
 Plug 'junegunn/goyo.vim'                                      " distraction free mode
 Plug 'ryuta69/coc-perl', {'do': 'yarn install && yarn build'} " Perl Language Server
-Plug 'puremourning/vimspector'                                " A multi language graphical debugger for Vim
-Plug 'ryanoasis/vim-devicons'                                 " dev icons for select  vim plugins
 Plug 'jparise/vim-graphql'                                    " GraphQL support
-
+Plug 'heavenshell/vim-jsdoc', {
+  \ 'for': ['javascript', 'javascript.jsx','typescript', 'typescript.tsx'],
+  \ 'do': 'make install'
+\}                                                            " JSDoc block generator
+Plug 'tpope/vim-abolish'                                      " plugin for working with variants of a word
 
 call plug#end()
 " ------------------ /Plugin Management -----------------
@@ -177,7 +178,6 @@ let g:coc_global_extensions = [
     \ 'coc-graphql',
     \ 'coc-json',
     \ 'coc-marketplace',
-    \ 'coc-pairs',
     \ 'coc-perl',
     \ 'coc-prettier',
     \ 'coc-rome',
@@ -185,12 +185,10 @@ let g:coc_global_extensions = [
     \ 'coc-tabnine',
     \ 'coc-tslint-plugin',
     \ 'coc-tsserver',
+    \ 'coc-vimlsp'
     \]
 
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 " --------------- /Plugin Config: coc ----------------
-
-" --------------- Plugin Config: vimspector ----------------
-let g:vimspector_enable_mappings = 'HUMAN'
-" --------------- /Plugin Config: vimspector ----------------
+ 

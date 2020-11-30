@@ -60,7 +60,7 @@ set rtp+=~/.vim_runtime/
 if (has("termguicolors"))
     set termguicolors
 endif
-let ayucolor="mirage"
+let ayucolor="dark"
 colorscheme ayu
 " --------------- /Plugin Config: ayu-theme/ayu-vim ----------------
 
