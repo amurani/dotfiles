@@ -34,15 +34,18 @@ autocmd FileType eruby      setlocal expandtab shiftwidth=2 tabstop=2
 " *************** /File type specific tab settings *****************
 
 " *************** File type specific syntax settings *****************
-autocmd BufReadPost *.comp    set syntax=mason
-autocmd BufReadPost *.html    set syntax=mason
-autocmd BufReadPost *.json    set syntax=json
-autocmd BufReadPost *.inc     set syntax=tmpl
-autocmd BufReadPost *.tmpl    set syntax=tmpl
-autocmd BufReadPost *.pp      set syntax=python
-autocmd BufReadPost *.config  set syntax=yaml
-autocmd BufReadPost *cpanfile set syntax=perl
-autocmd BufReadPost .env*     set syntax=sh
+autocmd BufReadPost *.comp     set syntax=mason
+autocmd BufReadPost *.html     set syntax=mason
+autocmd BufReadPost *.json     set syntax=json
+autocmd BufReadPost *.inc      set syntax=tmpl
+autocmd BufReadPost *.tmpl     set syntax=tmpl
+autocmd BufReadPost *.pp       set syntax=python
+autocmd BufReadPost *.config   set syntax=yaml
+autocmd BufReadPost *cpanfile  set syntax=perl
+autocmd BufReadPost .env*      set syntax=sh
+autocmd BufReadPost *.hbs      set syntax=mustache
+autocmd BufReadPost *.mustache set syntax=mustache
+
 " *************** /File type specific syntax settings *****************
 
 " --------------- /Basic Config -----------------

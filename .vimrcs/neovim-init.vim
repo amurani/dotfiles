@@ -49,6 +49,7 @@ Plug 'heavenshell/vim-jsdoc', {
 \}                                                            " JSDoc block generator
 Plug 'tpope/vim-abolish'                                      " plugin for working with variants of a word
 Plug 'tomtom/tcomment_vim'                                    " tcomment provides easy to use, file-type sensible comments for Vim
+Plug 'mustache/vim-mustache-handlebars'                       " plugin for working with mustache and handlebars templates
 
 call plug#end()
 " ------------------ /Plugin Management -----------------
@@ -183,6 +184,7 @@ let g:coc_global_extensions = [
     \ 'coc-prettier',
     \ 'coc-rome',
     \ 'coc-snippets',
+    \ 'coc-spell-checker',
     \ 'coc-tabnine',
     \ 'coc-tslint-plugin',
     \ 'coc-tsserver',
