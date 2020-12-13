@@ -91,11 +91,22 @@ let loadTabulous = 1
 " --------------- /Custom Plugin Config: sync on save script -----------------
 
 
-" --------------- Custom Plugin Config: pertidy -----------------
+" --------------- Custom Plugin Config: perltidy -----------------
 try
     source ~/.vim_runtime/vimrcs/perltidyrc.vim
     nnoremap <silent> tt :%!perltidy -q<Enter>
     vnoremap <silent> tt :!perltidy -q<Enter>
 catch
+    echo "Failed to load perltidy plugin"
 endtry
-" --------------- /Custom Plugin Config: pertidy -----------------
+" --------------- /Custom Plugin Config: perltidy -----------------
+
+" --------------- Custom Plugin Config: simple-sync -----------------
+try
+    source ~/.vim_runtime/vimrcs/simple-sync.vim
+    let g:simple_sync_enabled = 0
+catch
+    echo "Failed to load simple-sync plugin"
+endtry
+" --------------- /Custom Plugin Config: simple-sync -----------------
+
