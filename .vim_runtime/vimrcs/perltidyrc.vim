@@ -2,7 +2,7 @@
 
 if exists('g:perltidy')
     finish
-en
+endif
 
 function! s:TrimEndLines()
     let save_cursor = getpos(".")
