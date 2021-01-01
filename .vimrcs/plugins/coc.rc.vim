@@ -121,6 +121,7 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 let g:coc_global_extensions = [
     \ 'coc-flow',
     \ 'coc-graphql',
+    \ 'coc-html',
     \ 'coc-json',
     \ 'coc-marketplace',
     \ 'coc-perl',
