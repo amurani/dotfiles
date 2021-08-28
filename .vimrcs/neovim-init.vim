@@ -50,6 +50,12 @@ Plug 'heavenshell/vim-jsdoc', {
 Plug 'tpope/vim-abolish'                                      " plugin for working with variants of a word
 Plug 'tomtom/tcomment_vim'                                    " tcomment provides easy to use, file-type sensible comments for Vim
 Plug 'mustache/vim-mustache-handlebars'                       " plugin for working with mustache and handlebars templates
+Plug 'mityu/vim-applescript'                                  " syntax files for applescript
+Plug 'pantharshit00/vim-prisma'                               " file detection and syntax highlighting support for Prisma 2
+Plug 'ryanoasis/vim-devicons'                                 " Dev icons for fun stuff
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-lua/plenary.nvim'                                  " dependecy for the telescope plugin
+Plug 'nvim-telescope/telescope.nvim'                          " fuzzy finder with preview
 
 call plug#end()
 " ------------------ /Plugin Management -----------------
