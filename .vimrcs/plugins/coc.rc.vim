@@ -126,12 +126,16 @@ let g:coc_global_extensions = [
     \ 'coc-marketplace',
     \ 'coc-perl',
     \ 'coc-prettier',
+    \ 'coc-prisma',
+    \ 'coc-pyright',
+    \ 'coc-python',
     \ 'coc-rome',
     \ 'coc-snippets',
     \ 'coc-spell-checker',
     \ 'coc-tabnine',
     \ 'coc-tslint-plugin',
     \ 'coc-tsserver',
+    \ 'coc-vetur',
     \ 'coc-vimlsp',
     \]
 
