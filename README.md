@@ -34,11 +34,16 @@
 
 ### Nerd Fonts
 
-[nerd-fonts](https://github.com/ryanoasis/nerd-fonts#option-4-homebrew-fonts)
+- [nerd-fonts](https://github.com/ryanoasis/nerd-fonts#option-4-homebrew-fonts)
+- [Font Downloads](https://www.nerdfonts.com/font-downloads)
 
 ```bash
 ➜ brew tap homebrew/cask-fonts
-➜ brew install --cask <INSERT_FORNT_NAME_HERE>
+➜ brew install --cask font-<FONT NAME>
 ```
 
+Font reference: https://github.com/Homebrew/homebrew-cask-fonts
+
 Then use the installed font as you would in any other case
+
+Monaco for Powerline Nerd Font: https://github.com/taohexxx/fonts/blob/master/no_ligatures/Monaco%20for%20Powerline%20Nerd%20Font%20Complete.otf
