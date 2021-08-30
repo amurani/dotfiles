@@ -47,3 +47,19 @@ Font reference: https://github.com/Homebrew/homebrew-cask-fonts
 Then use the installed font as you would in any other case
 
 Monaco for Powerline Nerd Font: https://github.com/taohexxx/fonts/blob/master/no_ligatures/Monaco%20for%20Powerline%20Nerd%20Font%20Complete.otf
+
+### Shells
+
+#### zsh
+
+```zshrc
+if [ -f $HOME/.dotfiles/zsh/init.zsh ]; then source $HOME/.dotfiles/zsh/init.zsh; fi
+
+```
+
+#### bash
+
+```bashrc
+if [ -f $HOME/.dotfiles/bash/init.bash ]; then source $HOME/.dotfiles/bash/init.bash; fi
+
+```
