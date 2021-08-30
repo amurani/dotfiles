@@ -47,5 +47,7 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-lua/plenary.nvim'                                  " dependecy for the telescope plugin
 Plug 'nvim-telescope/telescope.nvim'                          " fuzzy finder with preview
 
+Plug 'git@gitlab.booking.com:devtools/vim-booking.git'        " devtools for working with vim at B.com (only internally accessible)
+
 call plug#end()
 " ------------------ /Plugin Management: vim-plug -----------------
