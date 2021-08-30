@@ -1,3 +1,5 @@
+if [ -f $HOME/.dotfiles/shell/common.sh ]; then source $HOME/.dotfiles/shell/common.sh; fi
+
 export HISTTIMEFORMAT="%d/%m/%y %T "
 
 export NVM_DIR="$HOME/.nvm"
