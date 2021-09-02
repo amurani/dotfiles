@@ -1,4 +1,4 @@
-plugins=(git battery zsh-syntax-highlighting)
+plugins=(git battery)
 
 source $ZSH/oh-my-zsh.sh
 
