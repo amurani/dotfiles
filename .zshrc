@@ -6,10 +6,10 @@ export TERM=xterm-256color
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
+# zsh config from personal dotfiles
 if [ -f $HOME/.dotfiles/zsh/init.zsh ]; then source $HOME/.dotfiles/zsh/init.zsh; fi
 
 if [ ! type kubectl &> /dev/null ]; then source <(kubectl completion zsh); fi # this slows zsh the fuck down
-if [ ! type bk &> /dev/null ]; then source <(bk completion zsh); fi
 export KUBECONFIG=~/.kube/config:~/.kube/kubconfig2
 
 # tabtab source for serverless package
