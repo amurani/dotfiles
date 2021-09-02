@@ -64,7 +64,7 @@ source ~/.dotfiles/vim/plugins/indent-line.vim
 source ~/.dotfiles/vim/plugins/nerdtree.vim
 " source ~/.dotfiles/vim/plugins/neoformat.vim
 source ~/.dotfiles/vim/plugins/tabulous.vim
-source ~/.dotfiles/vim/plugins/perltidy.vim
+" source ~/.dotfiles/vim/plugins/perltidy.vim
 source ~/.dotfiles/vim/plugins/simple-sync.vim
 
 " --------------- /Plugin Config Imports ----------------
