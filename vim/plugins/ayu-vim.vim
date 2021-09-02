@@ -2,6 +2,6 @@
 if (has("termguicolors"))
     set termguicolors
 endif
-let ayucolor="dark"
+let ayucolor="mirage"
 colorscheme ayu
 " --------------- /Plugin Config: ayu-theme/ayu-vim ----------------
