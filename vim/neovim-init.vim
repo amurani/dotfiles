@@ -13,5 +13,6 @@ source ~/.dotfiles/vim/plug.vim
 
 " --------------- Plugin Config Imports -----------------
 source ~/.dotfiles/vim/plugins/coc.rc.vim
+source ~/.dotfiles/vim/plugins/barbar.vim
 " --------------- /Plugin Config Imports -----------------
 
