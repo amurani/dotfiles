@@ -46,7 +46,6 @@ Plug 'ryanoasis/vim-devicons'                                 " Dev icons for fu
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-lua/plenary.nvim'                                  " dependecy for the telescope plugin
 Plug 'nvim-telescope/telescope.nvim'                          " fuzzy finder with preview
-Plug 'romgrk/barbar.nvim'                                     " tabline plugin with re-orderable, auto-sizing, clickable tabs, icons, nice highlighting, sort-by commands and a magic jump-to-buffer mode
 
 Plug 'git@gitlab.booking.com:devtools/vim-booking.git'        " devtools for working with vim at B.com (only internally accessible)
 
