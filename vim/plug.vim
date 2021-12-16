@@ -46,9 +46,9 @@ Plug 'ryanoasis/vim-devicons'                                 " Dev icons for fu
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-lua/plenary.nvim'                                  " dependecy for the telescope plugin
 Plug 'nvim-telescope/telescope.nvim'                          " fuzzy finder with preview
-
 Plug 'git@gitlab.booking.com:devtools/vim-booking.git'        " devtools for working with vim at B.com (only internally accessible)
 Plug 'junegunn/goyo.vim'                                      " Distraction-free writing in Vim
+Plug  'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " a simple and easy way to use the interface for tree-sitter
 
 call plug#end()
 " ------------------ /Plugin Management: vim-plug -----------------
