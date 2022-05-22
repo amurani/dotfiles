@@ -49,6 +49,7 @@ Plug 'nvim-telescope/telescope.nvim'                          " fuzzy finder wit
 Plug 'git@gitlab.booking.com:devtools/vim-booking.git'        " devtools for working with vim at B.com (only internally accessible)
 Plug 'junegunn/goyo.vim'                                      " Distraction-free writing in Vim
 Plug  'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " a simple and easy way to use the interface for tree-sitter
+Plug 'uiiaoo/java-syntax.vim'                                 " better Java synax highlighting
 
 call plug#end()
 " ------------------ /Plugin Management: vim-plug -----------------
