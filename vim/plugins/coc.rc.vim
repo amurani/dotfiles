@@ -124,6 +124,7 @@ let g:coc_global_extensions = [
     \ 'coc-flow',
     \ 'coc-graphql',
     \ 'coc-html',
+    \ 'coc-java',
     \ 'coc-json',
     \ 'coc-marketplace',
     \ 'coc-perl',
@@ -139,6 +140,7 @@ let g:coc_global_extensions = [
     \ 'coc-tsserver',
     \ 'coc-vetur',
     \ 'coc-vimlsp',
+    \ 'coc-xml'
     \]
 
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
