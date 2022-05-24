@@ -24,6 +24,7 @@ set nowritebackup              " turns off back based version control (in favor 
 set noswapfile                 " Turn swap files off (in favor of version control e.g. git)
 set cursorline                 " set to highlight current line with cursor
 set spell spelllang=en_us      " enables spell checking
+set colorcolumn=120            " adds column indicator at the 120 column mark
 " --------------- /Basic Config ------------------
 
 " --------------- File type specific tab settings *****************
