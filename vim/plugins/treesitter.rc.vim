@@ -4,6 +4,8 @@ require'nvim-treesitter.configs'.setup {
     enable = true,
   },
   ensure_installed = {
+    "c",
+    "cpp",
     "html",
     "java",
     "javascript",

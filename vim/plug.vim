@@ -25,7 +25,7 @@ Plug 'maxmellon/vim-jsx-pretty'                               " jsx syntax highl
 Plug 'leafgarland/typescript-vim'                             " typescript syntax highlighting
 Plug 'peitalin/vim-jsx-typescript'                            " tsx syntax highlighting
 Plug 'itchyny/lightline.vim'                                  " A light and configurable statusline/tabline plugin
-Plug 'jiangmiao/auto-pairs'                                   " adds a closing bracket, paren, quote, etc
+Plug 'windwp/nvim-autopairs'                                  " super powerful autopair plugin for Neovim that supports multiple characters
 Plug 'machakann/vim-sandwich'                                 " add/delete/replace surroundings of a sandwiched textobject
 Plug 'airblade/vim-gitgutter'                                 " git diff in the gutter
 Plug 'honza/vim-snippets'                                     " snippets files for various programming languages
@@ -50,6 +50,7 @@ Plug 'git@gitlab.booking.com:devtools/vim-booking.git'        " devtools for wor
 Plug 'junegunn/goyo.vim'                                      " Distraction-free writing in Vim
 Plug  'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " a simple and easy way to use the interface for tree-sitter
 Plug 'uiiaoo/java-syntax.vim'                                 " better Java synax highlighting
+Plug 'fannheyward/telescope-coc.nvim'
 
 call plug#end()
 " ------------------ /Plugin Management: vim-plug -----------------

@@ -15,5 +15,7 @@ source ~/.dotfiles/vim/plug.vim
 source ~/.dotfiles/vim/plugins/coc.rc.vim
 " source ~/.dotfiles/vim/plugins/goyo.rc.vim
 source ~/.dotfiles/vim/plugins/treesitter.rc.vim
+source ~/.dotfiles/vim/plugins/telescope.vim
+source ~/.dotfiles/vim/plugins/nvim-autopairs.vim
 " --------------- /Plugin Config Imports -----------------
 

@@ -126,6 +126,7 @@ let g:coc_global_extensions = [
     \ 'coc-html',
     \ 'coc-java',
     \ 'coc-json',
+    \ 'coc-clangd',
     \ 'coc-marketplace',
     \ 'coc-perl',
     \ 'coc-prettier',
