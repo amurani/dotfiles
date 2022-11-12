@@ -10,7 +10,7 @@ export ZSH="$HOME/.oh-my-zsh"
 if [ -f $HOME/.dotfiles/zsh/init.zsh ]; then source $HOME/.dotfiles/zsh/init.zsh; fi
 
 if [ ! type kubectl &> /dev/null ]; then source <(kubectl completion zsh); fi # this slows zsh the fuck down
-export KUBECONFIG=~/.kube/config:~/.kube/kubconfig2
+export KUBECONFIG=~/.kube/config
 
 # tabtab source for serverless package
 # uninstall by removing these lines or running `tabtab uninstall serverless`
@@ -40,3 +40,6 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 export PATH="$HOME/.jenv/bin:$PATH"
 eval "$(jenv init -)"
+
+# bk cli completions
+if [ -f /usr/local/bin/bk ]; then source <(bk completion zsh); fi
