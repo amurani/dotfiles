@@ -10,7 +10,8 @@ if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
 endif
 
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }       " a file system explorer
-Plug 'ayu-theme/ayu-vim'                                      " favorite color scheme/theme
+" Plug 'ayu-theme/ayu-vim'                                      " favorite color scheme/theme
+Plug 'Luxed/ayu-vim'                                          " replacement for 'ayu-theme/ayu-vim' which is unmaintained and broken
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'                                       " fuzzy find, easy project navigation
 Plug 'preservim/nerdcommenter'                                " ¯\_(ツ)_/¯ ... sth sth comment code
@@ -25,7 +26,7 @@ Plug 'maxmellon/vim-jsx-pretty'                               " jsx syntax highl
 Plug 'leafgarland/typescript-vim'                             " typescript syntax highlighting
 Plug 'peitalin/vim-jsx-typescript'                            " tsx syntax highlighting
 Plug 'itchyny/lightline.vim'                                  " A light and configurable statusline/tabline plugin
-Plug 'windwp/nvim-autopairs'                                  " super powerful autopair plugin for Neovim that supports multiple characters
+" Plug 'jiangmiao/auto-pairs'                                   " adds a closing bracket, paren, quote, etc
 Plug 'machakann/vim-sandwich'                                 " add/delete/replace surroundings of a sandwiched textobject
 Plug 'airblade/vim-gitgutter'                                 " git diff in the gutter
 Plug 'honza/vim-snippets'                                     " snippets files for various programming languages
@@ -51,6 +52,11 @@ Plug 'junegunn/goyo.vim'                                      " Distraction-free
 Plug  'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " a simple and easy way to use the interface for tree-sitter
 Plug 'uiiaoo/java-syntax.vim'                                 " better Java synax highlighting
 Plug 'fannheyward/telescope-coc.nvim'
+
+Plug 'williamboman/mason.nvim'
+Plug 'williamboman/mason-lspconfig.nvim'
+Plug 'neovim/nvim-lspconfig'
+Plug 'lewis6991/spellsitter.nvim'
 
 call plug#end()
 " ------------------ /Plugin Management: vim-plug -----------------
