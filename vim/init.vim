@@ -23,8 +23,11 @@ set nobackup                   " Turn backups off (in favor of version control e
 set nowritebackup              " turns off back based version control (in favor of version control e.g. git)
 set noswapfile                 " Turn swap files off (in favor of version control e.g. git)
 set cursorline                 " set to highlight current line with cursor
-set spell spelllang=en_us      " enables spell checking
+set spell                      " enables spell checking
 set colorcolumn=120            " adds column indicator at the 120 column mark
+set mouse=a                    " ¯\_(ツ)_/¯ for some reason, I need this, to undo it again in the next line
+set mouse-=a                   " Disable vim automatic visual mode on mouse select: https://gist.github.com/u0d7i/01f78999feff1e2a8361
+
 " --------------- /Basic Config ------------------
 
 " --------------- File type specific tab settings *****************
@@ -47,6 +50,7 @@ autocmd BufReadPost *cpanfile  set syntax=perl
 autocmd BufReadPost .env*      set syntax=sh
 autocmd BufReadPost *.hbs      set syntax=mustache
 autocmd BufReadPost *.mustache set syntax=mustache
+autocmd BufReadPost *.hql      set syntax=sql
 
 " --------------- /File type specific syntax settings -----------------
 
