@@ -57,6 +57,7 @@ Plug 'williamboman/mason.nvim'
 Plug 'williamboman/mason-lspconfig.nvim'
 Plug 'neovim/nvim-lspconfig'
 Plug 'lewis6991/spellsitter.nvim'
+Plug 'shortcuts/no-neck-pain.nvim', { 'tag': '*' } " center the currently focused buffer to the middle of the screen
 
 call plug#end()
 " ------------------ /Plugin Management: vim-plug -----------------
