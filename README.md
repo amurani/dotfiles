@@ -63,4 +63,36 @@ if [ -f $HOME/.dotfiles/zsh/init.zsh ]; then source $HOME/.dotfiles/zsh/init.zsh
 ```bashrc
 if [ -f $HOME/.dotfiles/bash/init.bash ]; then source $HOME/.dotfiles/bash/init.bash; fi
 
+### iTerm considerations
+
+* Enable mouse scrolling in for a long buffer
+```
+
+Preference -> Advanced -> Mouse Tab
+Scroll wheel sends arrow keys when in alternate screen mode: Yes
+
+```
+* Use ⌥ ← and ⌥→ to jump forwards / backwards words in iTerm 2, on OS X. [Guide](https://coderwall.com/p/h6yfda/use-and-to-jump-forwards-backwards-words-in-iterm-2-on-os-x)
+```
+
+Preference -> Profiles -> Keys
+⌥ ← : Action: Send Escape Sequence and Esc+: b
+⌥ →: Action: Send Escape Sequence and Esc+: f
+
+```
+* Tweak the scroll buffer limit
+```
+
+Preferences -> Profiles -> Terminal Tab -> Scrollback Buffer (section)
+Unlimited scrollback: ✔
+
+```
+
+* Missing powerline icons:  Install a Powerline Nerd Font and select it under
+```
+
+Preferences -> Profiles -> Text -> Font
+
+```
+
 ```
