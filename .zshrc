@@ -39,7 +39,14 @@ if [ -f '/Users/kevinmurani/google-cloud-sdk/completion.zsh.inc' ]; then . '/Use
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 export PATH="$HOME/.jenv/bin:$PATH"
-eval "$(jenv init -)"
+if [ ! type jenv &> /dev/null ]; then eval "$(jenv init -)"; fi # command not found: jenv -> ¯\_(ツ)_/¯
+
 
 # bk cli completions
 if [ -f /usr/local/bin/bk ]; then source <(bk completion zsh); fi
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
