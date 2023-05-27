@@ -10,8 +10,6 @@ alias gs='git fetch && git status'
 # --------------- /apps ------------------
 alias reply=/usr/local/bin/reply
 alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
-alias vim=/usr/local/Cellar/vim/8.2.1900/bin/vim
-alias vscode="/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code"
 
 # --------------- /apps ------------------
 
