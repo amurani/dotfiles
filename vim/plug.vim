@@ -16,7 +16,7 @@ Plug 'junegunn/fzf.vim'                                       " fuzzy find, easy
 Plug 'preservim/nerdcommenter'                                " ¯\_(ツ)_/¯ ... sth sth comment code
 Plug 'junegunn/vim-easy-align'                                " alignment plugin
 Plug 'webdevel/tabulous'                                      " tab labels
-" Plug 'Yggdroot/indentLine'                                  " visually show indentation levels for code indented with spaces
+                                                              " Plug 'Yggdroot/indentLine'                                  " visually show indentation levels for code indented with spaces
 Plug 'lukas-reineke/indent-blankline.nvim'                    " This plugin adds indentation guides to all lines (including empty lines) ... no conceal
 Plug 'https://github.com/prettier/vim-prettier'               " A vim plugin wrapper for prettier, pre-configured with custom default prettier settings.
 Plug 'ntpeters/vim-better-whitespace'                         " causes all trailing whitespace characters to be highlighted
@@ -56,9 +56,10 @@ Plug 'williamboman/mason.nvim'
 Plug 'williamboman/mason-lspconfig.nvim'
 Plug 'neovim/nvim-lspconfig'
 Plug 'lewis6991/spellsitter.nvim'
-Plug 'shortcuts/no-neck-pain.nvim', { 'tag': '*' } " center the currently focused buffer to the middle of the screen
-Plug 'windwp/nvim-autopairs' " A super powerful autopair plugin for Neovim that supports multiple characters.
-Plug 'smartpde/telescope-recent-files' " extension for the Telescope plugin which implements a picker for the recent files.
+Plug 'shortcuts/no-neck-pain.nvim', { 'tag': '*' }            " center the currently focused buffer to the middle of the screen
+Plug 'windwp/nvim-autopairs'                                  " A super powerful autopair plugin for Neovim that supports multiple characters.
+Plug 'smartpde/telescope-recent-files'                        " extension for the Telescope plugin which implements a picker for the recent files.
+Plug 'rose-pine/neovim'                                       " All natural pine, faux fur and a bit of soho vibes for the classy minimalist
 
 call plug#end()
 " ------------------ /Plugin Management: vim-plug -----------------
