@@ -7,7 +7,7 @@ require('plugins.nvim-autopairs')
 require('plugins.mason')
 require('plugins.dap-vscode-js')
 require('plugins.lspsaga')
-require('indent_blankline')
+require('plugins.indent_blankline')
 -- /Plugin Config Imports
 
 -- Plugin No Config Imports
