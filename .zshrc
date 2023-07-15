@@ -38,10 +38,6 @@ if [ -f '/Users/kevinmurani/google-cloud-sdk/completion.zsh.inc' ]; then . '/Use
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
-export PATH="$HOME/.jenv/bin:$PATH"
-if [ ! type jenv &> /dev/null ]; then eval "$(jenv init -)"; fi # command not found: jenv -> ¯\_(ツ)_/¯
-
-
 # bk cli completions
 if [ -f /usr/local/bin/bk ]; then source <(bk completion zsh); fi
 
@@ -49,7 +45,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-eval "$(/opt/homebrew/bin/brew shellenv)"
 
 source ~/perl5/perlbrew/etc/bashrc
 
@@ -57,12 +52,16 @@ source ~/perl5/perlbrew/etc/bashrc
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
+
+
+export PATH="$HOME/.jenv/bin:$PATH"
+if [ ! type jenv &> /dev/null ]; then eval "$(jenv init -)"; fi # command not found: jenv -> ¯\_(ツ)_/¯
 eval export PATH="/Users/kmurani/.jenv/shims:${PATH}"
 export JENV_SHELL=zsh
 export JENV_LOADED=1
 unset JAVA_HOME
 unset JDK_HOME
-source '/opt/homebrew/Cellar/jenv/0.5.6/libexec/libexec/../completions/jenv.zsh'
+[ -d "/opt/homebrew/Cellar/jenv/" ] && source '/opt/homebrew/Cellar/jenv/0.5.6/libexec/libexec/../completions/jenv.zsh'
 jenv rehash 2>/dev/null
 jenv refresh-plugins
 jenv() {
@@ -81,3 +80,4 @@ jenv() {
 }
 
 export PATH="/usr/local/homebrew/bin:$PATH"
+if [ -f /opt/homebrew/bin/brew ]; then eval "$(/opt/homebrew/bin/brew shellenv)"; fi
