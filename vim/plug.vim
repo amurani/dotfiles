@@ -16,7 +16,6 @@ Plug 'junegunn/fzf.vim'                                       " fuzzy find, easy
 Plug 'preservim/nerdcommenter'                                " ¯\_(ツ)_/¯ ... sth sth comment code
 Plug 'junegunn/vim-easy-align'                                " alignment plugin
 Plug 'webdevel/tabulous'                                      " tab labels
-                                                              " Plug 'Yggdroot/indentLine'                                  " visually show indentation levels for code indented with spaces
 Plug 'lukas-reineke/indent-blankline.nvim'                    " This plugin adds indentation guides to all lines (including empty lines) ... no conceal
 Plug 'https://github.com/prettier/vim-prettier'               " A vim plugin wrapper for prettier, pre-configured with custom default prettier settings.
 Plug 'ntpeters/vim-better-whitespace'                         " causes all trailing whitespace characters to be highlighted
@@ -27,7 +26,7 @@ Plug 'leafgarland/typescript-vim'                             " typescript synta
 Plug 'peitalin/vim-jsx-typescript'                            " tsx syntax highlighting
 Plug 'itchyny/lightline.vim'                                  " A light and configurable statusline/tabline plugin
 Plug 'machakann/vim-sandwich'                                 " add/delete/replace surroundings of a sandwiched textobject
-Plug 'airblade/vim-gitgutter'                                 " git diff in the gutter
+Plug 'lewis6991/gitsigns.nvim'                                " git decorations
 Plug 'honza/vim-snippets'                                     " snippets files for various programming languages
 Plug 'mhinz/vim-startify'                                     " default start screen on launch
 Plug 'junegunn/goyo.vim'                                      " distraction free mode
@@ -55,11 +54,22 @@ Plug 'fannheyward/telescope-coc.nvim'
 Plug 'williamboman/mason.nvim'
 Plug 'williamboman/mason-lspconfig.nvim'
 Plug 'neovim/nvim-lspconfig'
+Plug 'Fildo7525/pretty_hover'                                 " prettier better looking hover popup
+Plug 'onsails/lspkind-nvim'                                   " vscode-like pictograms
+Plug 'hrsh7th/cmp-buffer'                                     " nvim-cmp source for buffer words
+Plug 'hrsh7th/cmp-nvim-lsp'                                   " nvim-cmp source for neovim's built-in LSP
+Plug 'hrsh7th/nvim-cmp'                                       " Completion
+Plug 'nvimdev/lspsaga.nvim'                                   " improve lsp experences
+
 Plug 'lewis6991/spellsitter.nvim'
 Plug 'shortcuts/no-neck-pain.nvim', { 'tag': '*' }            " center the currently focused buffer to the middle of the screen
 Plug 'windwp/nvim-autopairs'                                  " A super powerful autopair plugin for Neovim that supports multiple characters.
 Plug 'smartpde/telescope-recent-files'                        " extension for the Telescope plugin which implements a picker for the recent files.
 Plug 'rose-pine/neovim'                                       " All natural pine, faux fur and a bit of soho vibes for the classy minimalist
+
+Plug 'mfussenegger/nvim-dap'                                  " Debug Adapter Protocol client implementation for Neovim.
+Plug 'mxsdev/nvim-dap-vscode-js'                              " nvim-dap adapter for vscode-js-debug.
+Plug 'rcarriga/nvim-dap-ui'                                   " A UI for nvim-dap
 
 call plug#end()
 " ------------------ /Plugin Management: vim-plug -----------------
