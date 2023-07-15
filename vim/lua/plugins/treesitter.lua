@@ -11,10 +11,12 @@ require'nvim-treesitter.configs'.setup {
         "json",
         "lua",
         "markdown",
+        "perl",
         "tsx",
         "typescript",
         "vim",
-        "yaml"
+        "yaml",
+        "sql"
     },
     highlight = {
         enable = true,
