@@ -61,7 +61,6 @@ Plug 'hrsh7th/cmp-nvim-lsp'                                   " nvim-cmp source 
 Plug 'hrsh7th/nvim-cmp'                                       " Completion
 Plug 'nvimdev/lspsaga.nvim'                                   " improve lsp experences
 
-Plug 'lewis6991/spellsitter.nvim'
 Plug 'shortcuts/no-neck-pain.nvim', { 'tag': '*' }            " center the currently focused buffer to the middle of the screen
 Plug 'windwp/nvim-autopairs'                                  " A super powerful autopair plugin for Neovim that supports multiple characters.
 Plug 'smartpde/telescope-recent-files'                        " extension for the Telescope plugin which implements a picker for the recent files.
