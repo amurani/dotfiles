@@ -7,8 +7,6 @@ vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
 vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
 
--- local pretty_hover = require("pretty_hover")
--- pretty_hover.setup()
 local protocol = require('vim.lsp.protocol')
 
 local augroup_format = vim.api.nvim_create_augroup("Format", { clear = true })

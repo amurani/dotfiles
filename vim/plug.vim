@@ -54,7 +54,6 @@ Plug 'fannheyward/telescope-coc.nvim'
 Plug 'williamboman/mason.nvim'
 Plug 'williamboman/mason-lspconfig.nvim'
 Plug 'neovim/nvim-lspconfig'
-Plug 'Fildo7525/pretty_hover'                                 " prettier better looking hover popup
 Plug 'onsails/lspkind-nvim'                                   " vscode-like pictograms
 Plug 'hrsh7th/cmp-buffer'                                     " nvim-cmp source for buffer words
 Plug 'hrsh7th/cmp-nvim-lsp'                                   " nvim-cmp source for neovim's built-in LSP
