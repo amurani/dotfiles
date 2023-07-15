@@ -9,6 +9,10 @@ source ~/.dotfiles/vim/vundle.vim
 " --------------- Plugin Config Imports -----------------
 source ~/.dotfiles/vim/plugins/ale.vim
 source ~/.dotfiles/vim/plugins/vim-javascript.vim
+" source ~/.dotfiles/vim/plugins/indent-line.vim
+source ~/.dotfiles/vim/plugins/indent-blankline.vim
+source ~/.dotfiles/vim/plugins/tabulous.vim
+
 " --------------- /Plugin Config Imports -----------------
 
 
