@@ -13,3 +13,7 @@ require('indent_blankline')
 -- Plugin No Config Imports
 require('gitsigns').setup()
 -- /Plugin No Config Imports
+
+-- modern plugin manager for Neovim
+-- require('lazy-rc')
+-- require('packer-rc')
