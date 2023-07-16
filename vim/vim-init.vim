@@ -7,6 +7,7 @@ source ~/.dotfiles/vim/vundle.vim
 " ------------------ /Plugin Management ------------------
 
 " --------------- Plugin Config Imports -----------------
+source ~/.dotfiles/vim/plugins/ayu-vim.vim
 source ~/.dotfiles/vim/plugins/ale.vim
 source ~/.dotfiles/vim/plugins/vim-javascript.vim
 " source ~/.dotfiles/vim/plugins/indent-line.vim

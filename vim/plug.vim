@@ -10,6 +10,8 @@ if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
 endif
 
 Plug 'Luxed/ayu-vim'                                          " replacement for 'ayu-theme/ayu-vim' which is unmaintained and broken
+Plug 'catppuccin/nvim', { 'as': 'catppuccin' }                " Catppuccin is a community-driven pastel theme that aims to be the middle ground between low and high contrast themes.
+
 Plug 'honza/vim-snippets'                                     " snippets files for various programming languages
 Plug 'https://github.com/prettier/vim-prettier'               " A vim plugin wrapper for prettier, pre-configured with custom default prettier settings.
 Plug 'itchyny/lightline.vim'                                  " A light and configurable statusline/tabline plugin

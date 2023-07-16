@@ -64,7 +64,6 @@ set rtp+=~/.vim_runtime/
 " --------------- /Editor Specific Config -----------------
 
 " --------------- Plugin Config Imports -----------------
-source ~/.dotfiles/vim/plugins/ayu-vim.vim
 source ~/.dotfiles/vim/plugins/nerdtree.vim
 " source ~/.dotfiles/vim/plugins/neoformat.vim
 " source ~/.dotfiles/vim/plugins/perltidy.vim

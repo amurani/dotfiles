@@ -15,6 +15,9 @@ source ~/.dotfiles/vim/plug.vim
 " --------------- /Plugin Config Imports -----------------
 
 lua <<EOF
+    -- vim settings
+    vim.cmd.colorschem("catppuccin-mocha")
+
     -- since I am using a custom plugin path, I need to add this the rtp
     -- so the plugin config can be imported
     vim.opt.runtimepath:append(',~/.dotfiles/vim')
