@@ -91,3 +91,22 @@ vim.diagnostic.config({
         source = "always", -- Or "if_many"
     },
 })
+
+
+lspconfig.perlpls.setup{
+    single_file_support = true,
+	on_attach = on_attach,
+	capabilities = capabilities,
+    settings = {
+        perl = {
+            perlcritic = { enabled = true },
+            syntax = { enabled = true },
+            inc = {
+                "/Users/kmurani/perl5/perlbrew/perls/perl-5.28.1/lib/5.28.1",
+                "/usr/local/git_tree/main/lib",
+                "/usr/local/git_tree/main/slib",
+
+            }
+        }
+    },
+}
