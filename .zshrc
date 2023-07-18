@@ -51,8 +51,7 @@ source ~/perl5/perlbrew/etc/bashrc
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-
+if [ command -v pyenv &> /dev/null ]; then eval "$(pyenv init -)"; fi
 
 export PATH="$HOME/.jenv/bin:$PATH"
 if [ ! type jenv &> /dev/null ]; then eval "$(jenv init -)"; fi # command not found: jenv -> ¯\_(ツ)_/¯
@@ -62,22 +61,25 @@ export JENV_LOADED=1
 unset JAVA_HOME
 unset JDK_HOME
 [ -d "/opt/homebrew/Cellar/jenv/" ] && source '/opt/homebrew/Cellar/jenv/0.5.6/libexec/libexec/../completions/jenv.zsh'
-jenv rehash 2>/dev/null
-jenv refresh-plugins
-jenv() {
-  type typeset &> /dev/null && typeset command
-  command="$1"
-  if [ "$#" -gt 0 ]; then
-    shift
-  fi
+if [ command -v pyenv &> /dev/null ];
+then
+    jenv() {
+      type typeset &> /dev/null && typeset command
+      command="$1"
+      if [ "$#" -gt 0 ]; then
+        shift
+      fi
 
-  case "$command" in
-  enable-plugin|rehash|shell|shell-options)
-    eval `jenv "sh-$command" "$@"`;;
-  *)
-    command jenv "$command" "$@";;
-  esac
-}
+      case "$command" in
+      enable-plugin|rehash|shell|shell-options)
+        eval `jenv "sh-$command" "$@"`;;
+      *)
+        command jenv "$command" "$@";;
+      esac
+    }
+    jenv rehash 2>/dev/null
+    jenv refresh-plugins
+fi
 
 export PATH="/usr/local/homebrew/bin:$PATH"
 if [ -f /opt/homebrew/bin/brew ]; then eval "$(/opt/homebrew/bin/brew shellenv)"; fi
