@@ -54,9 +54,9 @@ Plug 'nvim-telescope/telescope.nvim'                          " fuzzy finder wit
 Plug 'smartpde/telescope-recent-files'                        " extension for the Telescope plugin which implements a picker for the recent files.
 Plug 'nvim-lua/plenary.nvim'                                  " dependency for the telescope plugin
 
-Plug 'neoclide/coc.nvim', {'branch': 'release'}               " make vim act like an IDE
-Plug 'ryuta69/coc-perl', {'do': 'yarn install && yarn build'} " Perl Language Server
-Plug 'fannheyward/telescope-coc.nvim'
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}               " make vim act like an IDE
+" Plug 'ryuta69/coc-perl', {'do': 'yarn install && yarn build'} " Perl Language Server
+" Plug 'fannheyward/telescope-coc.nvim'
 
 Plug 'neovim/nvim-lspconfig'                                  " configs for the nvim lsp client
 Plug 'nvimdev/lspsaga.nvim'                                   " improve lsp experience
