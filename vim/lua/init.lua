@@ -8,6 +8,8 @@ require('plugins.mason')
 require('plugins.dap-vscode-js')
 require('plugins.lspsaga')
 require('plugins.indent_blankline')
+require('plugins.lualine')
+
 -- /Plugin Config Imports
 
 -- Plugin No Config Imports
