@@ -9,6 +9,7 @@ require('plugins.dap-vscode-js')
 require('plugins.lspsaga')
 require('plugins.indent_blankline')
 require('plugins.lualine')
+require('plugins.bufferline')
 
 -- /Plugin Config Imports
 

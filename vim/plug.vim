@@ -30,9 +30,10 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }      " a file system exp
 Plug 'shortcuts/no-neck-pain.nvim', { 'tag': '*' }           " center the currently focused buffer to the middle of the screen
 Plug 'tomtom/tcomment_vim'                                   " tcomment provides easy to use, file-type sensible comments for Vim
 Plug 'tpope/vim-abolish'                                     " plugin for working with variants of a word
-Plug 'webdevel/tabulous'                                     " tab labels
+" Plug 'webdevel/tabulous'                                     " tab labels
 Plug 'windwp/nvim-autopairs'                                 " A super powerful autopair plugin for Neovim that supports multiple characters.
 Plug 'nvim-lualine/lualine.nvim'                             " A blazing fast and easy to configure Neovim statusline written in Lua.
+Plug 'akinsho/bufferline.nvim' " A snazzy 💅 buffer line (with tabpage integration) for Neovim built using lua.
 
 Plug 'git@gitlab.booking.com:devtools/vim-booking.git'       " devtools for working with vim at B.com (only internally accessible)
 Plug 'jparise/vim-graphql'                                   " GraphQL support
