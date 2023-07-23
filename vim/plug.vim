@@ -14,7 +14,7 @@ Plug 'catppuccin/nvim', { 'as': 'catppuccin' }               " Catppuccin is a c
 
 Plug 'honza/vim-snippets'                                    " snippets files for various programming languages
 Plug 'https://github.com/prettier/vim-prettier'              " A vim plugin wrapper for prettier, pre-configured with custom default prettier settings.
-" Plug 'itchyny/lightline.vim'                                 " A light and configurable statusline/tabline plugin
+                                                             " Plug 'itchyny/lightline.vim'                                 " A light and configurable statusline/tabline plugin
 Plug 'junegunn/fzf.vim'                                      " fuzzy find, easy project navigation
 Plug 'junegunn/goyo.vim'                                     " distraction free mode
 Plug 'junegunn/vim-easy-align'                               " alignment plugin
@@ -30,10 +30,10 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }      " a file system exp
 Plug 'shortcuts/no-neck-pain.nvim', { 'tag': '*' }           " center the currently focused buffer to the middle of the screen
 Plug 'tomtom/tcomment_vim'                                   " tcomment provides easy to use, file-type sensible comments for Vim
 Plug 'tpope/vim-abolish'                                     " plugin for working with variants of a word
-" Plug 'webdevel/tabulous'                                     " tab labels
+                                                             " Plug 'webdevel/tabulous'                                     " tab labels
 Plug 'windwp/nvim-autopairs'                                 " A super powerful autopair plugin for Neovim that supports multiple characters.
 Plug 'nvim-lualine/lualine.nvim'                             " A blazing fast and easy to configure Neovim statusline written in Lua.
-Plug 'akinsho/bufferline.nvim' " A snazzy 💅 buffer line (with tabpage integration) for Neovim built using lua.
+Plug 'akinsho/bufferline.nvim'                               " A snazzy 💅 buffer line (with tabpage integration) for Neovim built using lua.
 
 Plug 'git@gitlab.booking.com:devtools/vim-booking.git'       " devtools for working with vim at B.com (only internally accessible)
 Plug 'jparise/vim-graphql'                                   " GraphQL support
@@ -49,6 +49,7 @@ Plug 'heavenshell/vim-jsdoc', {
   \ 'for': ['javascript', 'javascript.jsx','typescript', 'typescript.tsx'],
   \ 'do': 'make install'
 \}                                                           " JSDoc block generator
+Plug 'jose-elias-alvarez/null-ls.nvim'                       " Use Neovim as a language server to inject LSP diagnostics, code actions, and more (archived?)
 
 Plug  'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " a simple and easy way to use the interface for tree-sitter
 

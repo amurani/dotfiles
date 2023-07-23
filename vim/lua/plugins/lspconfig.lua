@@ -7,21 +7,6 @@ vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
 vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
 
-local protocol = require('vim.lsp.protocol')
-
-local augroup_format = vim.api.nvim_create_augroup("Format", { clear = true })
-local enable_format_on_save = function(_, bufnr)
-    vim.api.nvim_clear_autocmds({ group = augroup_format, buffer = bufnr })
-    vim.api.nvim_create_autocmd("BufWritePre", {
-        group = augroup_format,
-        buffer = bufnr,
-        callback = function()
-          vim.lsp.buf.format({ bufnr = bufnr })
-        end,
-    })
-end
-
-
 -- Use LspAttach autocommand to only map the following keys
 -- after the language server attaches to the current buffer
 vim.api.nvim_create_autocmd('LspAttach', {
@@ -48,24 +33,17 @@ vim.api.nvim_create_autocmd('LspAttach', {
         -- vim.keymap.set({ 'n', 'v' }, '<leader>a', vim.lsp.buf.code_action, opts)
         vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
         vim.keymap.set('n', '<space>f', function()
-        vim.lsp.buf.format { async = true }
+            vim.lsp.buf.format { async = true }
         end, opts)
     end,
 })
 
 lspconfig.tsserver.setup {
-    on_attach = on_attach,
     filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
     cmd = { "typescript-language-server", "--stdio" },
-    capabilities = capabilities
 }
 
 lspconfig.lua_ls.setup {
-    capabilities = capabilities,
-    on_attach = function(client, bufnr)
-        on_attach(client, bufnr)
-        enable_format_on_save(client, bufnr)
-    end,
     settings = {
         Lua = {
             diagnostics = {
@@ -82,21 +60,8 @@ lspconfig.lua_ls.setup {
     },
 }
 
-vim.diagnostic.config({
-    virtual_text = {
-        prefix = '●'
-    },
-    update_in_insert = true,
-    float = {
-        source = "always", -- Or "if_many"
-    },
-})
-
-
-lspconfig.perlpls.setup{
+lspconfig.perlpls.setup {
     single_file_support = true,
-	on_attach = on_attach,
-	capabilities = capabilities,
     settings = {
         perl = {
             perlcritic = { enabled = true },
@@ -110,3 +75,13 @@ lspconfig.perlpls.setup{
         }
     },
 }
+
+vim.diagnostic.config({
+    virtual_text = {
+        prefix = '●'
+    },
+    update_in_insert = true,
+    float = {
+        source = "always", -- Or "if_many"
+    },
+})
