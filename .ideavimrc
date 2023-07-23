@@ -1,0 +1,12 @@
+let mapleader = "\"
+
+" Code refactoring mappings
+map <leader>rn <Action>(RenameElement)
+
+" Code navigation mappings
+nmap <leader>gd <Action>(GotoDeclaration)
+nmap <leader>gy <Action>(GotoTypeDeclaration)
+nmap <leader>gi <Action>(GotoImplementation)
+nmap <leader>gu <Action>(ShowUsages)
+
+
