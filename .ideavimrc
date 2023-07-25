@@ -9,4 +9,9 @@ nmap <leader>gy <Action>(GotoTypeDeclaration)
 nmap <leader>gi <Action>(GotoImplementation)
 nmap <leader>gu <Action>(ShowUsages)
 
+" with inspiration from the 'tomtom/tcomment_vim' plugin
+map <C--><C--> <Action>(CommentByLineComment)
+map <leader>-- <Action>(CommentByLineComment)
+map <C-->b <Action>(CommentByBlockComment)
+map <leader>-b <Action>(CommentByBlockComment)
 
