@@ -9,6 +9,7 @@ set nowrap                     " prevent lines from being wrapped
 set hidden                     " set to enable multiple buffers
 set autoread                   " set to detect file changes from outside of vim
 set number                     " show line numbers
+set relativenumber             " show line numbers relative to cursor
 set numberwidth=3              " set minimum columns used for line numbers
 set wildmenu                   " command-line completion operates"
 set expandtab                  " set to use spaces over tabs
