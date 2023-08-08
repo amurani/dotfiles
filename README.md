@@ -37,6 +37,7 @@
 
 - [nerd-fonts](https://github.com/ryanoasis/nerd-fonts#option-4-homebrew-fonts)
 - [Font Downloads](https://www.nerdfonts.com/font-downloads)
+- [monaco-nerd-fonts](https://github.com/Karmenzind/monaco-nerd-fonts/tree/master) - good option
 
 ```bash
 ➜ brew tap homebrew/cask-fonts
