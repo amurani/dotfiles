@@ -15,6 +15,7 @@ Plug 'catppuccin/nvim', { 'as': 'catppuccin' }               " Catppuccin is a c
 Plug 'honza/vim-snippets'                                    " snippets files for various programming languages
 Plug 'https://github.com/prettier/vim-prettier'              " A vim plugin wrapper for prettier, pre-configured with custom default prettier settings.
                                                              " Plug 'itchyny/lightline.vim'                                 " A light and configurable statusline/tabline plugin
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }          " fzf#install() makes sure that you have the latest binary,
 Plug 'junegunn/fzf.vim'                                      " fuzzy find, easy project navigation
 Plug 'junegunn/goyo.vim'                                     " distraction free mode
 Plug 'junegunn/vim-easy-align'                               " alignment plugin
