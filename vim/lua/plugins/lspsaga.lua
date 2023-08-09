@@ -9,7 +9,13 @@ saga.setup({
             normal_bg = '#002b36'
         },
         title = false,
+    },
+    finder = {
+        keys = {
+            toggle_or_open = '<Enter>'
+        }
     }
+
 })
 
 local opts = { noremap = true, silent = true }
