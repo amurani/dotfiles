@@ -19,7 +19,7 @@ null_ls.setup({
                 -- "markdown",
                 "typescript",
                 "typescriptreact",
-                "yaml",
+                -- "yaml",
             },
         }),
     },
