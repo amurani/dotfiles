@@ -14,8 +14,13 @@ saga.setup({
         keys = {
             toggle_or_open = '<Enter>'
         }
+    },
+    rename = {
+        in_select = false,
+        keys = {
+            quit = '<Esc>'
+        }
     }
-
 })
 
 local opts = { noremap = true, silent = true }
