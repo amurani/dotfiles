@@ -9,14 +9,24 @@ saga.setup({
             normal_bg = '#002b36'
         },
         title = false,
+        code_action = '🧐'
+    },
+    lightbulb = {
+        sign = false,
     },
     finder = {
         keys = {
-            toggle_or_open = '<Enter>'
+            toggle_or_open = '<Enter>',
+            quit = '<Esc>'
         }
     },
     rename = {
         in_select = false,
+        keys = {
+            quit = '<Esc>'
+        }
+    },
+    code_action = {
         keys = {
             quit = '<Esc>'
         }
