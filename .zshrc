@@ -45,6 +45,8 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+export PATH="/usr/local/homebrew/bin:$PATH"
+if [ -f /opt/homebrew/bin/brew ]; then eval "$(/opt/homebrew/bin/brew shellenv)"; fi
 
 source ~/perl5/perlbrew/etc/bashrc
 
@@ -54,32 +56,5 @@ command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 if [ command -v pyenv &> /dev/null ]; then eval "$(pyenv init -)"; fi
 
 export PATH="$HOME/.jenv/bin:$PATH"
-if [ ! type jenv &> /dev/null ]; then eval "$(jenv init -)"; fi # command not found: jenv -> ¯\_(ツ)_/¯
-eval export PATH="/Users/kmurani/.jenv/shims:${PATH}"
-export JENV_SHELL=zsh
-export JENV_LOADED=1
-unset JAVA_HOME
-unset JDK_HOME
-[ -d "/opt/homebrew/Cellar/jenv/" ] && source '/opt/homebrew/Cellar/jenv/0.5.6/libexec/libexec/../completions/jenv.zsh'
-if [ command -v pyenv &> /dev/null ];
-then
-    jenv() {
-      type typeset &> /dev/null && typeset command
-      command="$1"
-      if [ "$#" -gt 0 ]; then
-        shift
-      fi
-
-      case "$command" in
-      enable-plugin|rehash|shell|shell-options)
-        eval `jenv "sh-$command" "$@"`;;
-      *)
-        command jenv "$command" "$@";;
-      esac
-    }
-    jenv rehash 2>/dev/null
-    jenv refresh-plugins
-fi
-
-export PATH="/usr/local/homebrew/bin:$PATH"
-if [ -f /opt/homebrew/bin/brew ]; then eval "$(/opt/homebrew/bin/brew shellenv)"; fi
+eval "$(jenv init -)"
+# FYI: sudo ln -sfn /Library/Java/JavaVirtualMachines/zulu-11.jdk/Contents/Home ~/.jenv/versions/11 for the "jenv: version `11' is not installed" pain
