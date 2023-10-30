@@ -3,6 +3,7 @@
 -- Improve NVIM UI
 require('plugins.lualine')
 require('plugins.bufferline')
+require('plugins.netrw')
 
 -- IDEfy NVIM
 require('plugins.lspconfig')

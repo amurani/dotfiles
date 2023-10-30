@@ -35,6 +35,7 @@ Plug 'tpope/vim-abolish'                                     " plugin for workin
 Plug 'windwp/nvim-autopairs'                                 " A super powerful autopair plugin for Neovim that supports multiple characters.
 Plug 'nvim-lualine/lualine.nvim'                             " A blazing fast and easy to configure Neovim statusline written in Lua.
 Plug 'akinsho/bufferline.nvim'                               " A snazzy 💅 buffer line (with tabpage integration) for Neovim built using lua.
+Plug 'prichrd/netrw.nvim'                                    " netrw + a layer of ✨bling✨ and configuration to your favorite file explorer.
 
 Plug 'git@gitlab.booking.com:devtools/vim-booking.git'       " devtools for working with vim at B.com (only internally accessible)
 Plug 'jparise/vim-graphql'                                   " GraphQL support
