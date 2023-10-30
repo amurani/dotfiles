@@ -5,8 +5,8 @@ if [ -f $HOME/.dotfiles/shell/functions.sh ]; then source $HOME/.dotfiles/shell/
 # homebrew
 if [ -f /opt/homebrew/bin/brew ]; then eval "$(/opt/homebrew/bin/brew shellenv)"; fi
 
-# nvm
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# nvm (disabled to support lazy loading)
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
 # perl
 source ~/perl5/perlbrew/etc/bashrc

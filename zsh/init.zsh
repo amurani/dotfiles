@@ -1,7 +1,8 @@
 export LC_ALL=en_US.UTF-8
 export TERM=xterm-256color
+export NVM_LAZY_LOAD=true
 
-plugins=(git battery)
+plugins=(git battery zsh-nvm)
 
 # oh-my-zsh
 export ZSH="$HOME/.oh-my-zsh" # Path to your oh-my-zsh installation.

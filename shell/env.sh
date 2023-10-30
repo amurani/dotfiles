@@ -8,8 +8,8 @@ export KUBECONFIG=~/.kube/config
 export PATH="/usr/local/homebrew/bin:$PATH"
 if [ -f /opt/homebrew/bin/brew ]; then eval "$(/opt/homebrew/bin/brew shellenv)"; fi
 
-# nvm
-export NVM_DIR="$HOME/.nvm"
+# nvm (disabled to supportlazy loading)
+# export NVM_DIR="$HOME/.nvm"
 
 # node/yarn
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
