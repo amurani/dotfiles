@@ -4,9 +4,9 @@ let mapleader = "\"
 map <leader>rn <Action>(RenameElement)
 
 " Code navigation mappings
-nmap <leader>gd <Action>(GotoDeclaration)
+nmap <leader>gd <Action>(GotoImplementation)
 nmap <leader>gy <Action>(GotoTypeDeclaration)
-nmap <leader>gi <Action>(GotoImplementation)
+nmap <leader>gi <Action>(GotoDeclaration)
 nmap <leader>gu <Action>(ShowUsages)
 
 " with inspiration from the 'tomtom/tcomment_vim' plugin
