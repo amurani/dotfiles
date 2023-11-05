@@ -4,7 +4,7 @@ if (not status) then return end
 cmp.setup({
     snippet = {
         expand = function(args)
-        require('luasnip').lsp_expand(args.body)
+            require('luasnip').lsp_expand(args.body)
         end,
     },
     mapping = cmp.mapping.preset.insert({
@@ -13,7 +13,7 @@ cmp.setup({
         ['<C-Space>'] = cmp.mapping.complete(),
         ['<C-e>'] = cmp.mapping.close(),
         ['<CR>'] = cmp.mapping.confirm({
-            behavior = cmp.ConfirmBehavior.Replace,
+            behavior = cmp.ConfirmBehavior.Insert,
             select = true
         }),
     }),
