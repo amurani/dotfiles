@@ -12,6 +12,7 @@ require('plugins.cmp')
 require('plugins.treesitter')
 require('plugins.telescope')
 require('plugins.mason')
+require('plugins.luasnip')
 
 -- General QoL tools for coding
 require('plugins.nvim-autopairs')

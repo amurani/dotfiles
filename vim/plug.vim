@@ -69,7 +69,12 @@ Plug 'nvimdev/lspsaga.nvim'                                  " improve lsp exper
 Plug 'hrsh7th/cmp-buffer'                                    " nvim-cmp source for buffer words
 Plug 'hrsh7th/cmp-nvim-lsp'                                  " nvim-cmp source for neovim's built-in LSP
 Plug 'hrsh7th/nvim-cmp'                                      " A completion engine plugin for neovim
-Plug 'L3MON4D3/LuaSnip'                                      " lua snippets engine for lsp completion
+Plug 'L3MON4D3/LuaSnip', {
+    \ 'tag': 'v2.*',
+    \ 'do': 'make install_jsregexp'
+\}                                                           " lua snippets engine for lsp completion
+Plug 'saadparwaiz1/cmp_luasnip'                              " luasnip completion source for nvim-cmp
+Plug 'rafamadriz/friendly-snippets'                          " Snippets collection for a set of different programming languages.
 
 Plug 'williamboman/mason.nvim'                               " Easily install and manage LSP servers, DAP servers, linters, and formatters
 Plug 'williamboman/mason-lspconfig.nvim'                     " making it easier to use mason.nvim and lspconig
