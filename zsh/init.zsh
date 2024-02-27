@@ -9,12 +9,13 @@ export ZSH="$HOME/.oh-my-zsh" # Path to your oh-my-zsh installation.
 source $ZSH/oh-my-zsh.sh
 
 # spaceship prompt for zsh
-# if [ -f $HOME/.dotfiles/zsh/spaceship.zsh ]; then source $HOME/.dotfiles/zsh/spaceship.zsh; fi
+if [ -f $HOME/.dotfiles/zsh/spaceship.zsh ]; then source $HOME/.dotfiles/zsh/spaceship.zsh; fi
 
 # starship prompt
-if [ -f $HOME/.dotfiles/zsh/starship.zsh ]; then source $HOME/.dotfiles/zsh/starship.zsh; fi
+# if [ -f $HOME/.dotfiles/zsh/starship.zsh ]; then source $HOME/.dotfiles/zsh/starship.zsh; fi
 
 # syntax highlighting for zsh
+# if [ -f source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh; fi
 if [ -f $HOME/.zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh ]; then source $HOME/.zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh; fi
 
 # fzf
