@@ -29,7 +29,7 @@
 - [Node JS](https://github.com/nvm-sh/nvm)
 - [Ruby](https://rvm.io/)
 - [Python](https://github.com/pyenv/pyenv)
-- [Java](https://github.com/jenv/jenv)
+- [Java](https://sdkman.io/)
 
 - [asdf](https://asdf-vm.com/#/) - one tool to rule them all ¯\_(ツ)\_/¯
 

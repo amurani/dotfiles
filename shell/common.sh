@@ -7,6 +7,7 @@ if [ -f /opt/homebrew/bin/brew ]; then eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # nvm (disabled to support lazy loading)
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # perl
 source ~/perl5/perlbrew/etc/bashrc
@@ -15,9 +16,8 @@ source ~/perl5/perlbrew/etc/bashrc
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 if [ command -v pyenv &> /dev/null ]; then eval "$(pyenv init -)"; fi
 
-# jenv
-eval "$(jenv init -)"
-# FYI: sudo ln -sfn /Library/Java/JavaVirtualMachines/zulu-11.jdk/Contents/Home ~/.jenv/versions/11 for the "jenv: version `11' is not installed" pain
+# sdk man cause jenv has not been nice to me
+source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 # work: bk cli completions
 if [ -f /usr/local/bin/bk ]; then source <(bk completion zsh); fi
