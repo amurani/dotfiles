@@ -20,6 +20,7 @@ require('plugins.indent_blankline')
 
 -- Language specific QoL tools
 require('plugins.dap-vscode-js')
+-- require('plugins.dap')
 require('plugins.null-ls')
 
 -- /Plugin Config Imports
@@ -31,3 +32,6 @@ require('gitsigns').setup()
 -- modern plugin manager for Neovim
 -- require('lazy-rc')
 -- require('packer-rc')
+
+-- AI coding assistants
+require('plugins.sourcegraph')

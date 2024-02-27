@@ -33,8 +33,10 @@ vim.api.nvim_create_autocmd('LspAttach', {
         -- vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
         -- vim.keymap.set({ 'n', 'v' }, '<leader>a', vim.lsp.buf.code_action, opts)
         -- vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
-        vim.keymap.set('n', '<space>f', function()
-            vim.lsp.buf.fomat { async = true }
+
+        -- I hate that I am doing this, but TS imports on typescript
+        vim.keymap.set('n', '<C-S-p>', function()
+            vim.lsp.buf.execute_command({ command = "_typescript.organizeImports", arguments = { vim.fn.expand("%:p") } })
         end, opts)
     end,
 })
@@ -76,6 +78,9 @@ lspconfig.perlpls.setup {
         }
     },
 }
+
+lspconfig.graphql.setup {}
+
 
 vim.diagnostic.config({
     virtual_text = {
