@@ -27,7 +27,17 @@ require('plugins.null-ls')
 
 -- Plugin No Config Imports
 require('gitsigns').setup()
-require('diagflow').setup()
+require('diagflow').setup({
+    border_chars = {
+        top_left = "┌",
+        top_right = "┐",
+        bottom_left = "└",
+        bottom_right = "┘",
+        horizontal = "─",
+        vertical = "│"
+    },
+    show_borders = true,
+})
 -- /Plugin No Config Imports
 
 -- modern plugin manager for Neovim
