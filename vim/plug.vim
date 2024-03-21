@@ -75,7 +75,7 @@ Plug 'L3MON4D3/LuaSnip', {
 \}                                                             " lua snippets engine for lsp completion
 Plug 'saadparwaiz1/cmp_luasnip'                                " luasnip completion source for nvim-cmp
 Plug 'rafamadriz/friendly-snippets'                            " Snippets collection for a set of different programming languages.
-
+Plug 'dgagn/diagflow.nvim'                                     " Provides a neat and distraction-free way to display LSP diagnostics
 Plug 'williamboman/mason.nvim'                                 " Easily install and manage LSP servers, DAP servers, linters, and formatters
 Plug 'williamboman/mason-lspconfig.nvim'                       " making it easier to use mason.nvim and lspconig
 

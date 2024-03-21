@@ -27,6 +27,7 @@ require('plugins.null-ls')
 
 -- Plugin No Config Imports
 require('gitsigns').setup()
+require('diagflow').setup()
 -- /Plugin No Config Imports
 
 -- modern plugin manager for Neovim
