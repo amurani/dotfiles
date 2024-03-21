@@ -78,6 +78,7 @@ Plug 'rafamadriz/friendly-snippets'                            " Snippets collec
 Plug 'dgagn/diagflow.nvim'                                     " Provides a neat and distraction-free way to display LSP diagnostics
 Plug 'williamboman/mason.nvim'                                 " Easily install and manage LSP servers, DAP servers, linters, and formatters
 Plug 'williamboman/mason-lspconfig.nvim'                       " making it easier to use mason.nvim and lspconig
+Plug 'davidmh/cspell.nvim'                                     " spell checker for code.
 
 Plug 'mfussenegger/nvim-dap'                                   " Debug Adapter Protocol client implementation for Neovim.
 Plug 'mxsdev/nvim-dap-vscode-js'                               " nvim-dap adapter for vscode-js-debug.

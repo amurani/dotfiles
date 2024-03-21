@@ -1,9 +1,13 @@
+
+local cspell = require('cspell')
+
 local status, null_ls = pcall(require, "null-ls")
 if (not status) then return end
 
 local group = vim.api.nvim_create_augroup("lsp_format_on_save", { clear = false })
 local event = "BufWritePre" -- or "BufWritePost"
 local async = event == "BufWritePost"
+
 
 null_ls.setup({
     sources = {
@@ -22,6 +26,8 @@ null_ls.setup({
                 -- "yaml",
             },
         }),
+        cspell.diagnostics,
+        cspell.code_actions,
     },
     on_attach = function(client, bufnr)
         if client.supports_method("textDocument/formatting") then
