@@ -81,6 +81,12 @@ lspconfig.perlpls.setup {
 
 lspconfig.graphql.setup {}
 
+local diagnostic_icons = {
+    [vim.diagnostic.severity.ERROR] = "✘",
+    [vim.diagnostic.severity.WARN] = "",
+    [vim.diagnostic.severity.INFO] = "",
+    [vim.diagnostic.severity.HINT] = "󰌶",
+}
 
 vim.diagnostic.config({
     virtual_text = {
@@ -90,4 +96,19 @@ vim.diagnostic.config({
     float = {
         source = "always", -- Or "if_many"
     },
+    underline = {
+        severity = { min = vim.diagnostic.severity.WARN },
+    },
+    signs = {
+        text = diagnostic_icons
+    }
 })
+
+vim.fn.sign_define("DiagnosticSignError",
+    { text = diagnostic_icons[vim.diagnostic.severity.ERROR], texthl = "DiagnosticSignError" })
+vim.fn.sign_define("DiagnosticSignWarn",
+    { text = diagnostic_icons[vim.diagnostic.severity.WARN], texthl = "DiagnosticSignWarn" })
+vim.fn.sign_define("DiagnosticSignInfo",
+    { text = diagnostic_icons[vim.diagnostic.severity.INFO], texthl = "DiagnosticSignInfo" })
+vim.fn.sign_define("DiagnosticSignHint",
+    { text = diagnostic_icons[vim.diagnostic.severity.HINT], texthl = "DiagnosticSignHint" })
