@@ -1,4 +1,3 @@
-
 local cspell = require('cspell')
 
 local status, null_ls = pcall(require, "null-ls")
@@ -26,7 +25,11 @@ null_ls.setup({
                 -- "yaml",
             },
         }),
-        cspell.diagnostics,
+        cspell.diagnostics.with({
+            diagnostics_postprocess = function(diagnostic)
+                diagnostic.severity = vim.diagnostic.severity["INFO"]
+            end
+        }),
         cspell.code_actions,
     },
     on_attach = function(client, bufnr)
