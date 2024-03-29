@@ -17,3 +17,9 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 
+# fzf
+if command -v fzf &> /dev/null; then
+    if command -v ag &> /dev/null; then export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -l -g ""'; fi
+else
+    echo "No FZF"
+fi
