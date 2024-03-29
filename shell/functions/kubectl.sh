@@ -1,28 +1,30 @@
 kpod () {
-    kubectl get pods -o=json | jq -r '.items[0].metadata.name'
+    kubectl get pods | awk 'NR>1' | fzf --height 10% | awk '{ print $1 }'
 }
 
 klogs () {
-    pod_name=$(kubectl get pods -o=json | jq -r '.items[0].metadata.name')
-    kubectl logs -f -c app $pod_name
+    kubectl logs -f -c app $(kpod)
+
 }
 
 kshell () {
-    pod_name=$(kubectl get pods -o=json | jq -r '.items[0].metadata.name')
-    kubectl exec -it $pod_name -- /bin/bash
+    kubectl exec -it $(kpod) -- /bin/bash
 }
 
-kpod_url () {
-    echo "https://$(kubectl get service backend -o jsonpath='{.metadata.annotations.kubernetes\.fqdn}')"
+ksvc () {
+    kubectl get svc | awk 'NR>1' | fzf --height 10% | awk '{ print $1 }'
 }
 
-kdesc_pod () {
-    pod_name=$(kubectl get pods -o=json | jq -r ".items[${1:-0}].metadata.name")
-    kubectl describe pod $pod_name
+kpoddesc () {
+    kubectl describe pod $(kpod)
 }
 
 kfqdn () {
-    kubectl get svc $1 -o yaml | yq '.metadata.annotations."kubernetes.fqdn"'
+    kubectl get svc $(ksvc) -o yaml | yq '.metadata.annotations."kubernetes.fqdn"'
+}
+
+kcluster () {
+    kubectl config get-contexts | awk 'NR>1' | fzf --height 10%| awk '{ print $2 }'
 }
 
 function wait_for_pod {
