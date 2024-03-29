@@ -19,6 +19,8 @@ export PYENV_ROOT="$HOME/.pyenv"
 
 # fzf
 if command -v fzf &> /dev/null; then
+    eval "$(fzf --zsh)" # for shell integration
+    export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
     if command -v ag &> /dev/null; then export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -l -g ""'; fi
 else
     echo "No FZF"

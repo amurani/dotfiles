@@ -1,5 +1,5 @@
 kpod () {
-    kubectl get pods | awk 'NR>1' | fzf --height 10% | awk '{ print $1 }'
+    kubectl get pods | awk 'NR>1' | fzf | awk '{ print $1 }'
 }
 
 klogs () {
@@ -12,7 +12,7 @@ kshell () {
 }
 
 ksvc () {
-    kubectl get svc | awk 'NR>1' | fzf --height 10% | awk '{ print $1 }'
+    kubectl get svc | awk 'NR>1' | fzf | awk '{ print $1 }'
 }
 
 kpoddesc () {
@@ -24,7 +24,7 @@ kfqdn () {
 }
 
 kcluster () {
-    kubectl config get-contexts | awk 'NR>1' | fzf --height 10%| awk '{ print $2 }'
+    kubectl config get-contexts | awk 'NR>1' | fzf | awk '{ print $2 }'
 }
 
 function wait_for_pod {
