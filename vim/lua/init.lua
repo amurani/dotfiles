@@ -19,8 +19,7 @@ require('plugins.nvim-autopairs')
 require('plugins.indent_blankline')
 
 -- Language specific QoL tools
-require('plugins.dap-vscode-js')
--- require('plugins.dap')
+require('plugins.dap')
 require('plugins.null-ls')
 
 -- /Plugin Config Imports

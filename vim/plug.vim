@@ -81,8 +81,15 @@ Plug 'williamboman/mason-lspconfig.nvim'                       " making it easie
 Plug 'davidmh/cspell.nvim'                                     " spell checker for code.
 
 Plug 'mfussenegger/nvim-dap'                                   " Debug Adapter Protocol client implementation for Neovim.
-Plug 'mxsdev/nvim-dap-vscode-js'                               " nvim-dap adapter for vscode-js-debug.
+                                                               " Plug 'mxsdev/nvim-dap-vscode-js'                               " nvim-dap adapter for vscode-js-debug.
+Plug 'mxsdev/nvim-dap-vscode-js', {
+            \ 'on': 'jsdebugger',
+            \ 'do': 'npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out'
+            \}                                                 " nvim-dap adapter for vscode-js-debug.
+
+Plug 'nvim-neotest/nvim-nio'
 Plug 'rcarriga/nvim-dap-ui'                                    " A UI for nvim-dap
+Plug 'theHamsta/nvim-dap-virtual-text'                         " Virtual text support for nvim-dap
 
 Plug 'sourcegraph/sg.nvim', { 'do': 'nvim -l build/init.lua' } " Source graph and co.
 Plug 'nvim-lua/plenary.nvim'                                   " Source graph and co.
