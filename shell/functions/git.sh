@@ -34,4 +34,7 @@ g_diff() {
     git --no-pager diff
 }
 
-
+# get a branch name
+brnch() {
+    git --no-pager branch | sed "s/\*/ /" | fzf
+}
