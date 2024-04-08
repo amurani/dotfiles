@@ -4,13 +4,13 @@ require("mason").setup({
 
 require('mason-lspconfig').setup({
     settings = {
-      perlnavigator = {
-          perlPath = 'perl',
-          enableWarnings = true,
-          perltidyProfile = '',
-          perlcriticProfile = '',
-          perlcriticEnabled = true,
-      }
+        perlnavigator = {
+            perlPath = 'perl',
+            enableWarnings = true,
+            perltidyProfile = '',
+            perlcriticProfile = '',
+            perlcriticEnabled = true,
+        }
     },
     ensure_installed = {
         -- language servers
