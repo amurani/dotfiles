@@ -38,3 +38,21 @@ g_diff() {
 brnch() {
     git --no-pager branch | sed "s/\*/ /" | fzf
 }
+
+# [g]it [s]tatus [p]ick
+gsp() {
+    git status -s | awk "{ print \$2 }" | fzf --multi --preview "bat --style=numbers --color=always --line-range :500 {} -p"
+}
+
+gaf() {
+    git add $(gsp) # [g]it [a]dd via [f]zf
+}
+
+gbf() {
+    git checkout $(brnch) # [g]it checkout [b]ranch via [f]zf
+}
+
+grstd() {
+    git restore --staged $(gsp) # [g]it [r]estore [st]age[d]
+}
+
