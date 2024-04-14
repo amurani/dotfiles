@@ -29,15 +29,14 @@ fi
 if [[ $config_files ]]; then
     printf "\n"
     echo "Symlinking .config files to $CONFIGDIR ..."
+
 	for config_file in $config_files; do
 		echo "config -> $config_file"
 
-	    	# this does replace any existing .config/* in home directory
-    		ln -fhs $CONFIGFILEDIR/$config_file $CONFIGDIR/$config_file
-
+        # this does replace any existing .config/* in home directory
+        ln -fns $CONFIGFILEDIR/$config_file $CONFIGDIR/$config_file
 	done
 else
     echo "Could not fine any .config in: '$CONFIGFILEDIR' ¯\_(ツ)_/¯"
-
 fi
 
