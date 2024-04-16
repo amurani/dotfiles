@@ -36,6 +36,15 @@ g_diff() {
 
 # get a branch name
 brnch() {
+    git --no-pager branch | ack '\*' | sed "s/\*//"
+}
+
+# get a branch name pretty
+brnch_p() {
+    brnch | xargs -I {} zsh -c 'echo -e "\e[1;32m  {} \e[0m"'
+}
+# [g]it [b]branch [p]ick
+gbp() {
     git --no-pager branch | sed "s/\*/ /" | fzf
 }
 
@@ -49,7 +58,7 @@ gaf() {
 }
 
 gbf() {
-    git checkout $(brnch) # [g]it checkout [b]ranch via [f]zf
+    git checkout $(gbp) # [g]it checkout [b]ranch via [f]zf
 }
 
 grstd() {
