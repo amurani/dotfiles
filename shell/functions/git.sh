@@ -50,7 +50,7 @@ gbp() {
 
 # [g]it [s]tatus [p]ick
 gsp() {
-    git status -s | awk "{ print \$2 }" | fzf --multi --preview "bat --style=numbers --color=always --line-range :500 {} -p"
+    git status -s | awk "{ print \$2 }" | fzf --multi --preview "git --no-pager diff {} | bat --style=numbers --color=always --line-range :500 -p"
 }
 
 gaf() {
