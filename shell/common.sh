@@ -21,3 +21,8 @@ if [ -f "$HOME/.sdkman/bin/sdkman-init.sh" ]; then source "$HOME/.sdkman/bin/sdk
 
 # work: bk cli completions
 if [ -f /usr/local/bin/bk ]; then source <(bk completion zsh); fi
+
+
+# machine specific miscllaneous stuff e.g. cowsay seinfeld jokes
+if [ -f $HOME/.misc.machine.sh ]; then source $HOME/.misc.machine.sh; fi
+
