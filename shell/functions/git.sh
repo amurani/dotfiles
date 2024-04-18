@@ -50,7 +50,8 @@ gbp() {
 
 # [g]it [s]tatus [p]ick
 gsp() {
-    git status -s | awk "{ print \$2 }" | fzf --multi --preview "git --no-pager diff {} | bat --style=numbers --color=always --line-range :500 -p"
+    git status -s | awk "{ print \$2 }" \
+        | fzf --multi --preview "git --no-pager diff {} | bat --style=numbers --color=always --line-range :500 -p"
 }
 
 gaf() {
@@ -65,3 +66,14 @@ grstd() {
     git restore --staged $(gsp) # [g]it [r]estore [st]age[d]
 }
 
+# [g]it [st]a[sh] [pr]eview
+gstshpr() {
+    git --no-pager stash list \
+        | awk '{print $1}' | sed 's/://' \
+        | fzf --preview "git --no-pager -p show {} | bat --style=numbers --color=always --line-range :500 -p"
+}
+
+# [g]it [st]a[sh] [p]op
+gstshp() {
+    git stash pop $(gstshpr)
+}
