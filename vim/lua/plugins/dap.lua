@@ -42,21 +42,37 @@ for _, language in ipairs({ "typescript", "javascript" }) do
             sourceMaps = true,
             runtimeExecutable = "node", -- redundant, but I want to be explicit
         } or nil,
-        -- TODO: figure this one out
+        {
+            type = "node2",
+            request = "launch",
+            name = "Debug Jest Tests",
+            cwd = "${workspaceFolder}",
+            runtimeExecutable = "node",
+            runtimeArgs = {
+                "--inspect-brk",
+                "node_modules/jest/bin/jest.js",
+                "--no-coverage",
+                "--runInBand", "${file}",
+            },
+            env = {
+            },
+            console = "integratedTerminal",
+            port = 9229,
+            timeout = 30000,
+            internalConsoleOptions = "neverOpen",
+            skipFiles = {
+                "<node_internals>/**/*.js", "node_modules",
+            }
+        },
         {
             type = "pwa-node",
             request = "launch",
-            name = "Debug Jest Tests",
-            -- trace = true, -- include debugger info
-            runtimeExecutable = "node",
+            name = "Debug playwright test",
+            cwd = "${workspaceFolder}/api-tests",
+            runtimeExecutable = "yarn",
             runtimeArgs = {
-                "./node_modules/jest/bin/jest.js",
-                "--runInBand",
+                "playwright", "test", "${file}"
             },
-            rootPath = "${workspaceFolder}",
-            cwd = "${workspaceFolder}",
-            console = "integratedTerminal",
-            internalConsoleOptions = "neverOpen",
         }
     }
 end
