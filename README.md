@@ -39,6 +39,7 @@
 - [Font Downloads](https://www.nerdfonts.com/font-downloads)
 - [monaco-nerd-fonts](https://github.com/Karmenzind/monaco-nerd-fonts/tree/master) - good option
 
+#### Mac OS
 ```bash
 ➜ brew tap homebrew/cask-fonts
 ➜ brew install --cask font-<FONT NAME>
@@ -49,6 +50,13 @@ Font reference: https://github.com/Homebrew/homebrew-cask-fonts
 Then use the installed font as you would in any other case
 
 Monaco for Powerline Nerd Font: https://github.com/taohexxx/fonts/blob/master/no_ligatures/Monaco%20for%20Powerline%20Nerd%20Font%20Complete.otf
+
+#### Ubuntu
+
+This was a bit of a pain to figure out, but installing fonts and using them in the terminal was not as straight forward as I would have expected.
+
+You will need to install `gnome-tweaks` which allows you to edit/override (not sure what verbiage to use). 
+From there, change the monospace font to the once you want to use and make sure to disable the custom font option from the terminal profile text settings
 
 ### Shells
 
