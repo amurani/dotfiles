@@ -51,7 +51,8 @@ Plug 'heavenshell/vim-jsdoc', {
   \ 'for': ['javascript', 'javascript.jsx','typescript', 'typescript.tsx'],
   \ 'do': 'make install'
 \}                                                             " JSDoc block generator
-Plug 'jose-elias-alvarez/null-ls.nvim'                         " Use Neovim as a language server to inject LSP diagnostics, code actions, and more (archived?)
+                                                               " Plug 'jose-elias-alvarez/null-ls.nvim'                         " Use Neovim as a language server to inject LSP diagnostics, code actions, and more (archived?)
+Plug 'nvimtools/none-ls.nvim'                                  " null-ls.nvim Reloaded, maintained by the community as null-ls is no longer supported
 
 Plug  'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}   " a simple and easy way to use the interface for tree-sitter
 
@@ -93,6 +94,12 @@ Plug 'theHamsta/nvim-dap-virtual-text'                         " Virtual text su
 
 Plug 'sourcegraph/sg.nvim', { 'do': 'nvim -l build/init.lua' } " Source graph and co.
 Plug 'nvim-lua/plenary.nvim'                                   " Source graph and co.
+
+Plug 'mistricky/codesnap.nvim', { 'do': 'make' }               " make pretty code snapshots
+Plug 'https://gitlab.com/schrieveslaach/sonarlint.nvim'        " Sonarlint  lsp plugin
+Plug 'mfussenegger/nvim-lint'                                  " An asynchronous linter plugin for Neovim (>= 0.9.5) complementary to the built-in Language Server Protocol support.
+Plug 'nvim-lua/plenary.nvim'                                   " nvim-coverage needs this for some reason - 'This plugin depends on plenary and optionally on the lua-xmlreader luarock to parse the cobertura format.'
+Plug 'andythigpen/nvim-coverage'                               " Displays coverage information in the sign column.
 
 call plug#end()
 " ------------------ /Plugin Management: vim-plug -----------------
