@@ -51,15 +51,13 @@ Plug 'heavenshell/vim-jsdoc', {
   \ 'for': ['javascript', 'javascript.jsx','typescript', 'typescript.tsx'],
   \ 'do': 'make install'
 \}                                                             " JSDoc block generator
-                                                               " Plug 'jose-elias-alvarez/null-ls.nvim'                         " Use Neovim as a language server to inject LSP diagnostics, code actions, and more (archived?)
-Plug 'nvimtools/none-ls.nvim'                                  " null-ls.nvim Reloaded, maintained by the community as null-ls is no longer supported
 
 Plug  'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}   " a simple and easy way to use the interface for tree-sitter
 
 Plug 'nvim-telescope/telescope.nvim'                           " fuzzy finder with preview
 Plug 'smartpde/telescope-recent-files'                         " extension for the Telescope plugin which implements a picker for the recent files.
 Plug 'nvim-lua/plenary.nvim'                                   " dependency for the telescope plugin
-
+Plug 'stevearc/conform.nvim'                                   " Lightweight yet powerful formatter plugin for Neovim
                                                                " Plug 'neoclide/coc.nvim', {'branch': 'release'}               " make vim act like an IDE
                                                                " Plug 'ryuta69/coc-perl', {'do': 'yarn install && yarn build'} " Perl Language Server
                                                                " Plug 'fannheyward/telescope-coc.nvim'

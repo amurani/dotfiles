@@ -14,6 +14,7 @@ require('plugins.telescope')
 require('plugins.mason')
 require('plugins.luasnip')
 require('plugins.sonarlint')
+require('plugins.conform')
 
 -- General QoL tools for coding
 require('plugins.nvim-autopairs')
@@ -21,7 +22,6 @@ require('plugins.indent_blankline')
 
 -- Language specific QoL tools
 require('plugins.dap')
-require('plugins.null-ls')
 
 -- /Plugin Config Imports
 
