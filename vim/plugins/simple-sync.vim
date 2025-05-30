@@ -4,8 +4,9 @@
 
 " --------------- Custom Plugin Config: simple-sync -----------------
 try
-    source ~/.vim_runtime/vimrcs/simple-sync.vim
-    let g:simple_sync_enabled = 0
+    source ~/.dotfiles/vim/runtimes/vimrcs/simple-sync.vim
+    let g:simple_sync_enabled = 1
+    let g:simple_sync_logging = 1
 catch
     echo "Failed to load simple-sync plugin"
 endtry

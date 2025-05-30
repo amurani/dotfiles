@@ -39,9 +39,9 @@ function! s:SimpleSync()
                             \ target_root_path,
                             \ relative_file_path
                             \)
-                call s:SimpleSyncLogger("scp command: " . scp_command)
                 let scp_command_output = system(scp_command)
                 call s:SimpleSyncLogger(scp_command_output)
+                call s:SimpleSyncLogger("✓ synced ". relative_file_path . " okay")
             endfor
         endif
 
