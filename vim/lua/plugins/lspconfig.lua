@@ -100,7 +100,7 @@ vim.diagnostic.config({
 	},
 	update_in_insert = true,
 	float = {
-		source = "always", -- Or "if_many"
+		source = true, -- Or "if_many"
 	},
 	underline = {
 		severity = { min = vim.diagnostic.severity.WARN },
