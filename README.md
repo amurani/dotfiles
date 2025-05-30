@@ -22,6 +22,10 @@
 - [the_silver_searcher](https://github.com/ggreer/the_silver_searcher) - code searching tool simalr to `ack`
 - [fzf](https://github.com/junegunn/fzf) - command line fuzzy finder
 - [peco](nvim-lua/plenary.nvim) - nteractive filtering tool
+- fx, jq, yq, htmlq - various file parsers
+- csvlens - CSV file TUI reader
+- watch
+- tree
 
 ### Versions Managers
 
