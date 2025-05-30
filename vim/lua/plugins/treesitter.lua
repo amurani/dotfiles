@@ -5,6 +5,7 @@ require 'nvim-treesitter.configs'.setup {
     ensure_installed = {
         "c",
         "cpp",
+        "glimmer",
         "html",
         "java",
         "javascript",
