@@ -13,6 +13,7 @@ require('plugins.treesitter')
 require('plugins.telescope')
 require('plugins.mason')
 require('plugins.luasnip')
+require('plugins.sonarlint')
 
 -- General QoL tools for coding
 require('plugins.nvim-autopairs')
@@ -44,4 +45,18 @@ require('diagflow').setup({
 -- require('packer-rc')
 
 -- AI coding assistants
-require('plugins.sourcegraph')
+-- require('plugins.sourcegraph')
+
+require("codesnap").setup({
+    mac_window_bar = false,
+    has_breadcrumbs = false,
+    bg_color = "#edeff3ff",
+    watermark = "",
+    code_font_family = "Monaco Nerd Font",
+})
+
+require('lint').linters_by_ft = {
+    kotlin = { 'ktlint' },
+}
+
+require("coverage").setup()
