@@ -55,3 +55,6 @@ perl_critic_this() {
     PERL5LIB="lib/:inc/Perl-Critic-Policy-BCritical/lib/" perlcritic --profile=.perlcriticrc $1
 }
 
+yadiff() {
+    diff <(print '%s\n' $1) <(print '%s\n' $2)
+}
