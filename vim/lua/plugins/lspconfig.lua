@@ -41,10 +41,10 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end,
 })
 
-lspconfig.tsserver.setup {
-    filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
-    cmd = { "typescript-language-server", "--stdio" },
-}
+-- lspconfig.tsserver.setup {
+--     filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
+--     cmd = { "typescript-language-server", "--stdio" },
+-- }
 
 lspconfig.lua_ls.setup {
     settings = {
@@ -63,6 +63,7 @@ lspconfig.lua_ls.setup {
     },
 }
 
+--[[
 lspconfig.perlpls.setup {
     single_file_support = true,
     settings = {
@@ -78,8 +79,16 @@ lspconfig.perlpls.setup {
         }
     },
 }
+--]]
 
 lspconfig.graphql.setup {}
+
+lspconfig.kotlin_language_server.setup {
+    filetypes = { "kotlin", "kt", "kts" },
+    cmd = {
+        os.getenv("HOME") .. '/Users/kmurani/.local/share/nvim/mason/bin/kotlin-language-server'
+    },
+}
 
 local diagnostic_icons = {
     [vim.diagnostic.severity.ERROR] = "✘",
