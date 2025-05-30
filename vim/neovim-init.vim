@@ -17,9 +17,16 @@ source ~/.dotfiles/vim/plug.vim
 " source ~/.dotfiles/vim/plugins/coc.rc.vim
 " --------------- /Plugin Config Imports -----------------
 
+" --------------- File type specific syntax settings -----------------
+autocmd BufReadPost *.hbs      set syntax=handlebars " setting this here so we can use treesitter
+autocmd BufReadPost *.mustache set syntax=handlebars " setting this here so we can use treesitter
+
+" --------------- /File type specific syntax settings -----------------
+
+
 lua <<EOF
     -- vim settings
-    vim.cmd.colorschem("catppuccin-mocha")
+    vim.cmd.colorschem("catppuccin-macchiato")
 
     -- since I am using a custom plugin path, I need to add this the rtp
     -- so the plugin config can be imported
