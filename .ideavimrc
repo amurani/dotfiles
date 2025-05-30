@@ -1,13 +1,15 @@
 " --------------- Basic Config ------------------
 
-set number                     " show line numbers
-set relativenumber             " show line numbers relative to cursor
-set numberwidth=3              " set minimum columns used for line numbers
-set hlsearch                   " highlight search matches"
-set cursorline                 " set to highlight current line with cursor
-set spell                      " enables spell checking
-set mouse=a                    " ¯\_(ツ)_/¯ for some reason, I need this, to undo it again in the next line
-set mouse-=a                   " Disable vim automatic visual mode on mouse select: https://gist.github.com/u0d7i/01f78999feff1e2a8361
+set number                 " show line numbers
+set relativenumber         " show line numbers relative to cursor
+set numberwidth=3          " set minimum columns used for line numbers
+set hlsearch               " highlight search matches"
+set cursorline             " set to highlight current line with cursor
+set spell                  " enables spell checking
+set mouse=a                " ¯\_(ツ)_/¯ for some reason, I need this, to undo it again in the next line
+set mouse-=a               " Disable vim automatic visual mode on mouse select: https://gist.github.com/u0d7i/01f78999feff1e2a8361
+set clipboard+=unnamedplus " use the system clipboard instead of interacting with the "+" and/or "*" registers explicitly): >vim
+
 " --------------- /Basic Config ------------------
 
 
