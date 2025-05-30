@@ -6,22 +6,60 @@ dap.set_log_level('ERROR')
 dap.adapters.node2 = {
     type = 'executable',
     command = 'node',
-    args = { os.getenv('HOME') .. '/dev/microsoft/vscode-node-debug2/out/src/nodeDebug.js' },
+    args = { os.getenv('HOME') .. '/.local/share/nvim/mason/packages/node-debug2-adapter/out/src/nodeDebug.js' },
+}
+
+local javascript_configurations = {
+    -- attach to a node process that has been started with
+    -- `--inspect` for longrunning tasks or `--inspect-brk` for short tasks
+    -- npm script -> `node --inspect-brk ./node_modules/.bin/vite dev`
+    -- the pwa-node adapter disconnected as soon as it attached to the process so we gave up on it
+    {
+        name = "Attach debugger to existing `node --inspect` process",
+        type = 'node2',
+        request = 'attach',
+    },
+    {
+        type = "node2",
+        request = "launch",
+        name = "Debug Jest Tests",
+        cwd = "${workspaceFolder}",
+        runtimeExecutable = "node",
+        runtimeArgs = {
+            "--inspect-brk",
+            "node_modules/jest/bin/jest.js",
+            "--no-coverage",
+            "--runInBand", "${file}",
+        },
+        env = {
+        },
+        console = "integratedTerminal",
+        port = 9229,
+        timeout = 30000,
+        internalConsoleOptions = "neverOpen",
+        skipFiles = {
+            "<node_internals>/**/*.js", "node_modules",
+        }
+    },
+    {
+        type = "pwa-node",
+        request = "launch",
+        name = "Debug playwright test",
+        cwd = "${workspaceFolder}/api-tests",
+        runtimeExecutable = "yarn",
+        runtimeArgs = {
+            "playwright", "test", "${file}"
+        },
+    }
 }
 
 for _, language in ipairs({ "typescript", "javascript" }) do
-    dap.configurations[language] = {
-        -- attach to a node process that has been started with
-        -- `--inspect` for longrunning tasks or `--inspect-brk` for short tasks
-        -- npm script -> `node --inspect-brk ./node_modules/.bin/vite dev`
-        -- the pwa-node adapter disconnected as soon as it attached to the process so we gave up on it
-        {
-            name = "Attach debugger to existing `node --inspect` process",
-            type = 'node2',
-            request = 'attach',
-        },
-        -- debugger for only for single node typescript file
-        language == "typescript" and {
+    local configurations = javascript_configurations
+    dap.configurations[language] = configurations
+
+    if language == "typescript" then
+        table.insert(dap.configurations[language], {
+            -- debugger for only for single node typescript file
             type = "pwa-node",
             request = "launch",
             name = "Launch *.ts file in new node process",
@@ -31,9 +69,12 @@ for _, language in ipairs({ "typescript", "javascript" }) do
             runtimeArgs = {
                 -- add/remove as needed
             }
-        } or nil,
-        -- debugger for only for single node javascript file
-        language == "javascript" and {
+        })
+    end
+
+    if language == "javascript" then
+        table.insert(dap.configurations[language], {
+            -- debugger for only for single node javascript file
             type = "pwa-node",
             request = "launch",
             name = "Launch *.js file in new node process",
@@ -41,40 +82,9 @@ for _, language in ipairs({ "typescript", "javascript" }) do
             cwd = "${workspaceFolder}",
             sourceMaps = true,
             runtimeExecutable = "node", -- redundant, but I want to be explicit
-        } or nil,
-        {
-            type = "node2",
-            request = "launch",
-            name = "Debug Jest Tests",
-            cwd = "${workspaceFolder}",
-            runtimeExecutable = "node",
-            runtimeArgs = {
-                "--inspect-brk",
-                "node_modules/jest/bin/jest.js",
-                "--no-coverage",
-                "--runInBand", "${file}",
-            },
-            env = {
-            },
-            console = "integratedTerminal",
-            port = 9229,
-            timeout = 30000,
-            internalConsoleOptions = "neverOpen",
-            skipFiles = {
-                "<node_internals>/**/*.js", "node_modules",
-            }
-        },
-        {
-            type = "pwa-node",
-            request = "launch",
-            name = "Debug playwright test",
-            cwd = "${workspaceFolder}/api-tests",
-            runtimeExecutable = "yarn",
-            runtimeArgs = {
-                "playwright", "test", "${file}"
-            },
-        }
-    }
+
+        })
+    end
 end
 
 -- custom signs
