@@ -9,7 +9,9 @@ export PATH="/usr/local/homebrew/bin:$PATH"
 if [ -f /opt/homebrew/bin/brew ]; then eval "$(/opt/homebrew/bin/brew shellenv)"; fi
 
 # nvm (disabled to supportlazy loading)
-# export NVM_DIR="$HOME/.nvm"
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # node/yarn
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
@@ -33,3 +35,6 @@ if command -v fzf &> /dev/null; then
 else
     echo "No FZF"
 fi
+
+# sdkman
+source "/Users/kmurani/.sdkman/bin/sdkman-init.sh"
