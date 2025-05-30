@@ -4,11 +4,18 @@ kpod () {
 
 klogs () {
     kubectl logs -f -c app $(kpod)
-
 }
 
 kshell () {
     kubectl exec -it $(kpod) -- /bin/bash
+}
+
+kontainer() {
+    kubectl get pod -o yaml | yq -o json | fx '.items[0].status.containerStatuses.map(container => container.name).join("\n")' | fzf
+}
+
+kontainer_logs () {
+    kubectl logs -f -c $(kontainer) $(kpod)
 }
 
 ksvc () {
@@ -20,7 +27,7 @@ kpoddesc () {
 }
 
 kfqdn () {
-    kubectl get svc $(ksvc) -o yaml | yq '.metadata.annotations."kubernetes.fqdn"'
+    echo "http://$(kubectl get svc $(ksvc) -o yaml | yq '.metadata.annotations."kubernetes.fqdn"')"
 }
 
 kcluster () {

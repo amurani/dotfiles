@@ -6,6 +6,10 @@ pupu() {
     git pull origin "$1" --rebase && git push origin "$1"
 }
 
+gfecho() {
+    git fetch origin "$1" && git checkout "$1"
+}
+
 pst() {
     git stash; git pull origin "$1" --rebase; git push origin "$1"; git stash pop
 }
@@ -76,4 +80,8 @@ gstshpr() {
 # [g]it [st]a[sh] [p]op
 gstshp() {
     git stash pop $(gstshpr)
+}
+
+gmsg() {
+    git show --format=%B --no-patch $(git log --pretty=format:"%h" | fzf --preview "git show --format=%B --no-patch {} | bat --style=numbers --color=always --line-range :500 -p") | pbcopy
 }
