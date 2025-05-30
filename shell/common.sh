@@ -19,6 +19,9 @@ if [ command -v pyenv &> /dev/null ]; then eval "$(pyenv init -)"; fi
 # sdk man cause jenv has not been nice to me
 if [ -f "$HOME/.sdkman/bin/sdkman-init.sh" ]; then source "$HOME/.sdkman/bin/sdkman-init.sh"; fi
 
+# kubectl completions
+source <(kubectl completion zsh)
+
 # work: bk cli completions
 if [ -f /usr/local/bin/bk ]; then source <(bk completion zsh); fi
 
