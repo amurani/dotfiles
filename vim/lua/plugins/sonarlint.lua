@@ -33,5 +33,7 @@ require("sonarlint").setup({
 	filetypes = {
 		"typescript",
 		"javascript",
+		"kotlin",
+		"java",
 	},
 })
