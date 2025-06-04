@@ -10,16 +10,20 @@ which is working fine for me
 
 local lspconfig = require("lspconfig")
 
+-- local install_location = vim.fn.expand("$HOME/sonarlint-vscode-darwin-x64-4.3.0/extension/server/sonarlint-ls.jar")
+local install_location =
+	vim.fn.expand("$HOME/.local/share/nvim/mason/packages/sonarlint-language-server/extension/server/sonarlint-ls.jar")
+
 require("sonarlint").setup({
 	server = {
 		cmd = {
 			"java",
 			"-jar",
-			vim.fn.expand("$HOME/sonarlint-vscode-darwin-x64-4.3.0/extension/server/sonarlint-ls.jar"),
+			install_location,
 			-- Ensure that sonarlint-language-server uses stdio channel
 			"-stdio",
 			"-analyzers",
-			vim.fn.expand("$HOME/sonarlint-vscode-darwin-x64-4.3.0/extension/analyzers/sonarjs.jar"),
+			install_location,
 		},
 		settings = {
 			sonarlint = {},
