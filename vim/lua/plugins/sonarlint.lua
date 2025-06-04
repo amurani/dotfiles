@@ -8,26 +8,26 @@ which is working fine for me
 
 --]]
 
-local lspconfig = require('lspconfig')
+local lspconfig = require("lspconfig")
 
 require("sonarlint").setup({
-    server = {
-        cmd = {
-            "java", "-jar",
-            vim.fn.expand("$HOME/sonarlint-vscode-darwin-x64-4.3.0/extension/server/sonarlint-ls.jar"),
-            -- Ensure that sonarlint-language-server uses stdio channel
-            "-stdio",
-            "-analyzers",
-            vim.fn.expand("$HOME/sonarlint-vscode-darwin-x64-4.3.0/extension/analyzers/sonarjs.jar"),
-        },
-        settings = {
-            sonarlint = {
-            },
-        },
-        autostart = true
-    },
-    filetypes = {
-        "typescript",
-        "javascript",
-    },
+	server = {
+		cmd = {
+			"java",
+			"-jar",
+			vim.fn.expand("$HOME/sonarlint-vscode-darwin-x64-4.3.0/extension/server/sonarlint-ls.jar"),
+			-- Ensure that sonarlint-language-server uses stdio channel
+			"-stdio",
+			"-analyzers",
+			vim.fn.expand("$HOME/sonarlint-vscode-darwin-x64-4.3.0/extension/analyzers/sonarjs.jar"),
+		},
+		settings = {
+			sonarlint = {},
+		},
+		autostart = true,
+	},
+	filetypes = {
+		"typescript",
+		"javascript",
+	},
 })
