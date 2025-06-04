@@ -1,16 +1,5 @@
 local lspconfig = require("lspconfig")
 
--- Global mappings.
--- See `:help vim.diagnostic.*` for documentation on any of the below functions
-vim.keymap.set("n", "<space>e", vim.diagnostic.open_float)
-vim.keymap.set("n", "[d", function()
-	vim.diagnostic.jump({ count = -1, float = true })
-end)
-vim.keymap.set("n", "]d", function()
-	vim.diagnostic.jump({ count = 1, float = true })
-end)
-vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist)
-
 -- Use LspAttach autocommand to only map the following keys
 -- after the language server attaches to the current buffer
 vim.api.nvim_create_autocmd("LspAttach", {
@@ -96,8 +85,19 @@ for language_server, config in pairs(language_servers) do
 end
 
 -- /language servers
---
+
 -- diagnostics
+-- Global mappings.
+-- See `:help vim.diagnostic.*` for documentation on any of the below functions
+vim.keymap.set("n", "<space>e", vim.diagnostic.open_float)
+vim.keymap.set("n", "[d", function()
+	vim.diagnostic.jump({ count = -1, float = true })
+end)
+vim.keymap.set("n", "]d", function()
+	vim.diagnostic.jump({ count = 1, float = true })
+end)
+vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist)
+
 local diagnostic_icons = {
 	[vim.diagnostic.severity.ERROR] = "✘",
 	[vim.diagnostic.severity.WARN] = "",
