@@ -1,0 +1,17 @@
+# config: visual
+theme = rose-pine-moon
+font-size = 13
+# font-family = Monaco Nerd Font
+
+shell-integration-features = no-cursor,sudo,no-title
+cursor-style = block
+window-save-state = always
+window-colorspace = display-p3
+
+unfocused-split-opacity = 0.9
+
+# config:keybindings
+
+# config:other
+copy-on-select = clipboard
+
