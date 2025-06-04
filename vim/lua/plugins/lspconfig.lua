@@ -3,8 +3,12 @@ local lspconfig = require("lspconfig")
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 vim.keymap.set("n", "<space>e", vim.diagnostic.open_float)
-vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
-vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
+vim.keymap.set("n", "[d", function()
+	vim.diagnostic.jump({ count = -1, float = true })
+end)
+vim.keymap.set("n", "]d", function()
+	vim.diagnostic.jump({ count = 1, float = true })
+end)
 vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist)
 
 -- Use LspAttach autocommand to only map the following keys
@@ -27,66 +31,72 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
 		end, opts)
 		vim.keymap.set("n", "<space>D", vim.lsp.buf.type_definition, opts)
-		-- commented out as we will use lspsaga for the same
-		-- vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-		-- vim.keymap.set('n', 'K', pretty_hover.hover, opts)
-		-- vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
-		-- vim.keymap.set({ 'n', 'v' }, '<leader>a', vim.lsp.buf.code_action, opts)
-		-- vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
 
 		-- I hate that I am doing this, but TS imports on typescript
 		vim.keymap.set("n", "<C-S-p>", function()
-			vim.lsp.buf.execute_command({
-				command = "_typescript.organizeImports",
-				arguments = { vim.fn.expand("%:p") },
-			})
+			local clients = vim.lsp.get_clients({ bufnr = 0 })
+			for _, client in ipairs(clients) do
+				if client.name == "typescript-language-server" or client.name == "tsserver" then
+					client:exec_cmd({
+						title = "[TS] Organize Imports",
+						command = "_typescript.organizeImports",
+						arguments = { vim.fn.expand("%:p") },
+					})
+					break
+				end
+			end
 		end, opts)
 	end,
 })
 
-lspconfig.tsserver.setup({
-	filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
-	cmd = { "typescript-language-server", "--stdio" },
-})
+-- language servers
+local language_servers = {
+	tsserver = {
+		filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
+		cmd = { "typescript-language-server", "--stdio" },
+	},
+	lua_ls = {
+		settings = {
+			Lua = {
+				diagnostics = {
+					-- Get the language server to recognize the `vim` global
+					globals = { "vim" },
+				},
 
-lspconfig.lua_ls.setup({
-	settings = {
-		Lua = {
-			diagnostics = {
-				-- Get the language server to recognize the `vim` global
-				globals = { "vim" },
-			},
-
-			workspace = {
-				-- Make the server aware of Neovim runtime files
-				library = vim.api.nvim_get_runtime_file("", true),
-				checkThirdParty = false,
+				workspace = {
+					-- Make the server aware of Neovim runtime files
+					library = vim.api.nvim_get_runtime_file("", true),
+					checkThirdParty = false,
+				},
 			},
 		},
 	},
-})
-
-lspconfig.perlnavigator.setup({
-	settings = {
-		perlnavigator = {
-			perlPath = "perl",
-			enableWarnings = true,
-			perltidyProfile = "",
-			perlcriticProfile = "",
-			perlcriticEnabled = true,
+	perlnavigator = {
+		settings = {
+			perlnavigator = {
+				perlPath = "perl",
+				enableWarnings = true,
+				perltidyProfile = "",
+				perlcriticProfile = "",
+				perlcriticEnabled = true,
+			},
 		},
 	},
-})
-
-lspconfig.graphql.setup({})
-
-lspconfig.kotlin_language_server.setup({
-	filetypes = { "kotlin", "kt", "kts" },
-	cmd = {
-		os.getenv("HOME") .. "/Users/kmurani/.local/share/nvim/mason/bin/kotlin-language-server",
+	graphql = {},
+	kotlin_language_server = {
+		filetypes = { "kotlin", "kt", "kts" },
+		cmd = {
+			os.getenv("HOME") .. "/.local/share/nvim/mason/bin/kotlin-language-server",
+		},
 	},
-})
+}
+for language_server, config in pairs(language_servers) do
+	lspconfig[language_server].setup(config)
+end
 
+-- /language servers
+--
+-- diagnostics
 local diagnostic_icons = {
 	[vim.diagnostic.severity.ERROR] = "✘",
 	[vim.diagnostic.severity.WARN] = "",
@@ -126,3 +136,4 @@ vim.fn.sign_define(
 	"DiagnosticSignHint",
 	{ text = diagnostic_icons[vim.diagnostic.severity.HINT], texthl = "DiagnosticSignHint" }
 )
+-- /diagnostics
