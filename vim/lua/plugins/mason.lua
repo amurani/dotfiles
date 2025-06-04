@@ -27,5 +27,8 @@ require("mason-lspconfig").setup({
 
 		-- spell checking
 		"typos_lsp",
+
+		-- debugging
+		"node-debug2-adapter",
 	},
 })
