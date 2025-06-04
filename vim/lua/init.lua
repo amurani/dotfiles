@@ -27,17 +27,17 @@ require("plugins.dap")
 
 -- Plugin No Config Imports
 require("gitsigns").setup()
-require("diagflow").setup({
-	border_chars = {
-		top_left = "┌",
-		top_right = "┐",
-		bottom_left = "└",
-		bottom_right = "┘",
-		horizontal = "─",
-		vertical = "│",
-	},
-	show_borders = true,
-})
+-- require("diagflow").setup({
+-- 	border_chars = {
+-- 		top_left = "┌",
+-- 		top_right = "┐",
+-- 		bottom_left = "└",
+-- 		bottom_right = "┘",
+-- 		horizontal = "─",
+-- 		vertical = "│",
+-- 	},
+-- 	show_borders = true,
+-- })
 -- /Plugin No Config Imports
 
 -- modern plugin manager for Neovim
@@ -55,8 +55,8 @@ require("codesnap").setup({
 	code_font_family = "Monaco Nerd Font",
 })
 
-require("lint").linters_by_ft = {
-	kotlin = { "ktlint" },
-}
+-- require("lint").linters_by_ft = {
+-- 	kotlin = { "ktlint" },
+-- }
 
 require("coverage").setup()
