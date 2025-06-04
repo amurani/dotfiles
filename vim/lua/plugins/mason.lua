@@ -8,32 +8,24 @@ require("mason-lspconfig").setup({
 		-- language servers
 		"bashls",
 		"graphql",
+		"jdtls",
 		"jsonls",
 		"kotlin_language_server",
-		"jdtls",
 		"lua_ls",
 		"perlnavigator",
 		"ts_ls",
-		-- "bash-language-server",
-		-- "graphql-language-service-cli",
-		-- "java-language-server",
-		-- "java_language_server",
-		-- "json-lsp",
-		-- "kotlin-language-server",
-		-- "lua-language-server",
-		-- "perlnavigator",
-		-- "sonarlint-language-server",
-		-- "typescript-language-server",
 
 		-- linters
-		-- "eslint_d",
+		"eslint_d",
+		"ktlint",
+		"sonarlint-language-server",
+		"stylua",
+		"yamllint",
 
 		-- formatters
-		-- "prettier",
+		"prettier",
 
-		-- spell checking support
-		-- "codespell",
-		-- "misspell",
-		-- "cspell",
+		-- spell checking
+		"typos_lsp",
 	},
 })
