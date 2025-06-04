@@ -51,9 +51,12 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 -- language servers
 local language_servers = {
-	tsserver = {
-		filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
-		cmd = { "typescript-language-server", "--stdio" },
+	graphql = {},
+	kotlin_language_server = {
+		filetypes = { "kotlin", "kt", "kts" },
+		cmd = {
+			os.getenv("HOME") .. "/.local/share/nvim/mason/bin/kotlin-language-server",
+		},
 	},
 	lua_ls = {
 		settings = {
@@ -82,13 +85,11 @@ local language_servers = {
 			},
 		},
 	},
-	graphql = {},
-	kotlin_language_server = {
-		filetypes = { "kotlin", "kt", "kts" },
-		cmd = {
-			os.getenv("HOME") .. "/.local/share/nvim/mason/bin/kotlin-language-server",
-		},
+	tsserver = {
+		filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
+		cmd = { "typescript-language-server", "--stdio" },
 	},
+	typos_lsp = {},
 }
 for language_server, config in pairs(language_servers) do
 	lspconfig[language_server].setup(config)
