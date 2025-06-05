@@ -11,7 +11,7 @@ saga.setup({
 			normal_bg = "#002b36",
 		},
 		title = false,
-		code_action = "🧐",
+		code_action = "", -- find more here https://www.nerdfonts.com/cheat-sheet
 	},
 	lightbulb = {
 		sign = false,
