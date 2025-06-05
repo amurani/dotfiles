@@ -31,4 +31,9 @@ require("mason-lspconfig").setup({
 		-- debugging
 		"node-debug2-adapter",
 	},
+	automatic_enable = {
+		exclude = {
+			"typos_lsp", -- we'll setup our own options via the lspconfig plugin
+		},
+	},
 })

@@ -78,7 +78,11 @@ local language_servers = {
 		filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
 		cmd = { "typescript-language-server", "--stdio" },
 	},
-	typos_lsp = {},
+	typos_lsp = {
+		init_options = {
+			diagnosticSeverity = "Information", -- or "Information", "Hint"
+		},
+	},
 }
 for language_server, config in pairs(language_servers) do
 	lspconfig[language_server].setup(config)
@@ -107,7 +111,7 @@ local diagnostic_icons = {
 
 vim.diagnostic.config({
 	virtual_text = {
-		prefix = "●",
+		prefix = "",
 	},
 	update_in_insert = true,
 	float = {
