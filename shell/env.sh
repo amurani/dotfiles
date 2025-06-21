@@ -29,12 +29,13 @@ export PYENV_ROOT="$HOME/.pyenv"
 
 # fzf
 if command -v fzf &> /dev/null; then
-    eval "$(fzf --zsh)" # for shell integration
+    version=$(fzf --version | awk '{print $1}')
+    required="0.48.0"
+    if [[ "$(printf '%s\n' "$required" "$version" | sort -V | head -n1)" == "$required" ]]; then
+        eval "$(fzf --zsh)" # for shell integration - only available in fzf 0.48.0 or later
+    fi
     export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
     if command -v ag &> /dev/null; then export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -l -g ""'; fi
 else
     echo "No FZF"
 fi
-
-# sdkman
-source "/Users/kmurani/.sdkman/bin/sdkman-init.sh"
