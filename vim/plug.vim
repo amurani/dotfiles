@@ -73,5 +73,7 @@ Plug 'mfussenegger/nvim-lint'                                  " An asynchronous
 
 Plug 'git@gitlab.booking.com:devtools/vim-booking.git'         " devtools for working with vim at B.com (only internally accessible)
 
+Plug 'szymonwilczek/vim-be-better'                             " A comprehensive vim training plugin featuring game-based exercises to improve your vim skills
+
 call plug#end()
 " ------------------ /Plugin Management: vim-plug -----------------
