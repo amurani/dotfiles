@@ -2,10 +2,20 @@ if exists('g:simple_sync_enabled')
   finish
 endif
 
-function! s:SimpleSyncLogger(message)
-    if g:simple_sync_logging  == 1
-        echo a:message
+function! s:SimpleSyncLog(message, level)
+    if g:simple_sync_logging == 0 && a:level ==# 'info'
+        return
     endif
+    redraw
+    if a:level ==# 'error'
+        echohl ErrorMsg
+    elseif a:level ==# 'ok'
+        echohl DiffAdd
+    else
+        echohl None
+    endif
+    echom a:message
+    echohl None
 endfunction
 
 function! s:SimpleSync()
@@ -13,7 +23,8 @@ function! s:SimpleSync()
     try
         let configuration = readfile(glob(g:simple_sync_config))
     catch
-       call s:SimpleSyncLogger("syncing cannot run without a configuration file file name")
+        " call s:SimpleSyncLog("simple-sync: cannot read config: " . g:simple_sync_config, 'error')
+        return
     endtry
 
     let dict = json_decode(configuration)
@@ -40,15 +51,18 @@ function! s:SimpleSync()
                             \ relative_file_path
                             \)
                 let scp_command_output = system(scp_command)
-                call s:SimpleSyncLogger(scp_command_output)
-                call s:SimpleSyncLogger("✓ synced ". relative_file_path . " okay")
+                if v:shell_error != 0
+                    call s:SimpleSyncLog("simple-sync: FAILED " . relative_file_path . " → " . host . ": " . trim(scp_command_output), 'error')
+                else
+                    call s:SimpleSyncLog("simple-sync: ✓ " . relative_file_path . " → " . host, 'ok')
+                endif
             endfor
         endif
 
     endfor
 endfunction
 
-autocmd BufWritePre * call s:SimpleSync()
+autocmd BufWritePost * call s:SimpleSync()
 
 let g:simple_sync_enabled = 1
 let g:simple_sync_logging = 0
