@@ -14,6 +14,10 @@ source $ZSH/oh-my-zsh.sh
 # starship prompt
 if [ -f $HOME/.dotfiles/zsh/starship.zsh ]; then source $HOME/.dotfiles/zsh/starship.zsh; fi
 
+# https://github.com/ajeetdsouza/zoxide
+if [ -f $HOME/.dotfiles/zsh/zoxide.zsh ]; then source $HOME/.dotfiles/zsh/zoxide.zsh; fi
+
+
 # syntax highlighting for zsh
 # if [ -f source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh; fi
 if [ -f $HOME/.zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh ]; then source $HOME/.zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh; fi
