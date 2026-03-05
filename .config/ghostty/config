@@ -1,9 +1,12 @@
 # config: visual
-theme = rose-pine-moon
-font-size = 13
+theme = dark:Rose Pine,light:Rose Pine Dawn
+theme = Rose Pine Moon
+font-size = 15
 # font-family = Monaco Nerd Font
 
-shell-integration-features = no-cursor,sudo,no-title
+shell-integration-features = sudo
+shell-integration = zsh
+
 cursor-style = block
 window-save-state = always
 window-colorspace = display-p3
@@ -14,4 +17,4 @@ unfocused-split-opacity = 0.9
 
 # config:other
 copy-on-select = clipboard
-
+keybind = shift+enter=text:\x1b\r

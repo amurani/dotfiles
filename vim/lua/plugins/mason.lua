@@ -20,6 +20,7 @@ require("mason-lspconfig").setup({
 		"ktlint",
 		"sonarlint-language-server",
 		"stylua",
+		"tflint",
 		"yamllint",
 
 		-- formatters

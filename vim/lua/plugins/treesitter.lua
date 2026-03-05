@@ -13,6 +13,8 @@ require("nvim-treesitter.configs").setup({
 		"lua",
 		"markdown",
 		"perl",
+		"terraform",
+		"hcl",
 		"tsx",
 		"typescript",
 		"vim",
