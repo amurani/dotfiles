@@ -74,7 +74,7 @@ local language_servers = {
 			},
 		},
 	},
-	tsserver = {
+	ts_ls = {
 		filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
 		cmd = { "typescript-language-server", "--stdio" },
 	},

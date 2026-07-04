@@ -32,7 +32,7 @@ Plug 'heavenshell/vim-jsdoc', {
   \ 'do': 'make install'
 \}                                                             " JSDoc block generator
 
-Plug  'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}   " a simple and easy way to use the interface for tree-sitter
+Plug  'nvim-treesitter/nvim-treesitter', {'branch': 'master', 'do': ':TSUpdate'} " pinned to master: the default 'main' branch is a rewrite that drops the nvim-treesitter.configs API this config uses
 
 Plug 'nvim-telescope/telescope.nvim'                           " fuzzy finder with preview
 Plug 'smartpde/telescope-recent-files'                         " extension for the Telescope plugin which implements a picker for the recent files.
@@ -42,7 +42,7 @@ Plug 'stevearc/conform.nvim'                                   " Lightweight yet
 
 Plug 'williamboman/mason.nvim'                                 " Easily install and manage LSP servers, DAP servers, linters, and formatters
 Plug 'williamboman/mason-lspconfig.nvim'                       " making it easier to use mason.nvim and lspconig
-Plug 'neovim/nvim-lspconfig'                                   " configs for the nvim lsp client
+Plug 'neovim/nvim-lspconfig', { 'tag': 'v2.5.0' }              " configs for the nvim lsp client (pinned: later commits deprecate the require('lspconfig') framework)
 Plug 'nvimdev/lspsaga.nvim'                                    " improve lsp experience
 
 Plug 'hrsh7th/cmp-buffer'                                      " nvim-cmp source for buffer words
