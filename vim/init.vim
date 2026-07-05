@@ -56,11 +56,9 @@ autocmd BufReadPost *.hql      set syntax=sql
 " --------------- /File type specific syntax settings -----------------
 
 " --------------- Editor Specific Config -----------------
-if has('nvim')
-	source ~/.dotfiles/vim/neovim-init.vim
-else
-	source ~/.dotfiles/vim/vim-init.vim
-endif
+" NB: Neovim no longer sources this file. It has its own native Lua config at
+" ~/.config/nvim/init.lua. This path is now classic-Vim only.
+source ~/.dotfiles/vim/vim-init.vim
 set rtp+=~/.vim_runtime/
 " --------------- /Editor Specific Config -----------------
 

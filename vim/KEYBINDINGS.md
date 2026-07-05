@@ -1,33 +1,36 @@
 # Neovim Keybindings Cheat Sheet
 
-> Leader key is `\` (default) unless remapped.
+> Leader key is `\` (default).
+> Config: `~/.config/nvim/` (Lua, managed by lazy.nvim).
 
 ---
 
-## Navigation & Buffers
+## Navigation & Editor
 
-| Mode | Key | Action |
-|------|-----|--------|
-| `n` | `<Tab>` | Next tab/buffer |
-| `n` | `<S-Tab>` | Previous tab/buffer |
+| Mode | Key | Action | Source |
+|------|-----|--------|--------|
+| `n` | `<Tab>` | Next tab | bufferline |
+| `n` | `<S-Tab>` | Previous tab | bufferline |
+| `n` | `<C-n>` / `<leader>e` | Toggle file explorer | neo-tree |
+| `n` | `<Esc>` | Clear search highlight | core |
+| `n`, `x` | `ga` | EasyAlign | vim-easy-align |
 
 ---
 
 ## LSP — Go To / Navigation
 
-> These are buffer-local and only active when an LSP attaches.
+> Buffer-local; active only when a language server attaches.
 
 | Mode | Key | Action | Source |
 |------|-----|--------|--------|
-| `n` | `gd` | Go to definition | lspsaga |
-| `n` | `gD` | Go to declaration | lspconfig |
-| `n` | `gi` | Go to implementation | lspconfig |
-| `n` | `gr` | Find references (finder) | lspsaga |
-| `n` | `gp` | Peek definition (inline preview) | lspsaga |
-| `n` | `K` | Hover documentation | lspsaga |
-| `n` | `<C-k>` | Signature help (normal mode) | lspconfig |
-| `i` | `<C-k>` | Signature help (insert mode) | lspsaga |
-| `n` | `<space>D` | Go to type definition | lspconfig |
+| `n` | `gd` | Go to definition | native |
+| `n` | `gD` | Go to declaration | native |
+| `n` | `gi` | Go to implementation | native |
+| `n` | `gr` | Find references (picker) | Telescope |
+| `n` | `gp` | Peek definition (preview window) | glance.nvim |
+| `n` | `K` | Hover documentation | native |
+| `n`, `i` | `<C-k>` | Signature help | native |
+| `n` | `<space>D` | Go to type definition | native |
 
 ---
 
@@ -35,10 +38,10 @@
 
 | Mode | Key | Action |
 |------|-----|--------|
-| `n` | `<C-j>` | Jump to next diagnostic (lspsaga) |
-| `n` | `gl` | Show line diagnostics |
+| `n` | `<C-j>` | Jump to next diagnostic |
 | `n` | `[d` | Jump to previous diagnostic (with float) |
 | `n` | `]d` | Jump to next diagnostic (with float) |
+| `n` | `gl` | Show line diagnostics (float) |
 | `n` | `<space>e` | Open diagnostic float |
 | `n` | `<space>q` | Send diagnostics to location list |
 
@@ -64,15 +67,17 @@
 
 ---
 
-## Completion (nvim-cmp)
+## Completion (blink.cmp)
 
 | Mode | Key | Action |
 |------|-----|--------|
-| `i` | `<C-Space>` | Trigger completion |
+| `i` | `<C-Space>` | Trigger completion / toggle docs |
+| `i` | `<C-n>` / `<Down>` | Select next item |
+| `i` | `<C-p>` / `<Up>` | Select previous item |
 | `i` | `<C-d>` | Scroll docs up |
 | `i` | `<C-f>` | Scroll docs down |
-| `i` | `<C-e>` | Close completion menu |
-| `i` | `<CR>` | Confirm selected completion item |
+| `i` | `<C-e>` | Hide completion menu |
+| `i` | `<CR>` | Confirm selected item |
 
 ---
 
@@ -104,12 +109,3 @@
 | `n` | `<leader>dc` | Continue execution |
 | `n` | `<leader>dr` | Toggle debug REPL |
 | `n` | `<leader>dt` | Toggle DAP UI |
-
----
-
-## Perl (perltidy)
-
-| Mode | Key | Action |
-|------|-----|--------|
-| `n` | `tt` | Run perltidy on entire buffer |
-| `v` | `tt` | Run perltidy on selection |
