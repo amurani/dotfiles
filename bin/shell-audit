@@ -1,0 +1,114 @@
+#!/usr/bin/env zsh
+# shell-audit — profile zsh interactive startup and report where the time goes.
+#
+# Usage: shell-audit [runs]     (default: 10 timing runs)
+#
+# Prints three views:
+#   1. Total interactive startup time (min/mean/max over N runs)
+#   2. Top functions by time (zprof)
+#   3. Slowest individual commands (xtrace timeline) — catches slow
+#      eval/source/completion lines that zprof can't attribute.
+#
+# It also lists the untracked, machine-specific files (~/.env.machine.sh etc.)
+# since those are the usual reason two machines with the same repo differ.
+#
+# Copy/paste the whole output when comparing machines.
+
+emulate -L zsh
+zmodload zsh/datetime
+
+RUNS=${1:-10}
+tmp=$(mktemp -d)
+trap 'rm -rf "$tmp"' EXIT
+
+# Reuse the real completion cache (via a private copy) so compinit is timed with
+# a warm cache, like a normal shell — otherwise it looks artificially slow.
+local -a real_dump
+real_dump=( "$HOME"/.zcompdump*(.om[1]N) )
+if (( ${#real_dump} )); then
+	cp "${real_dump[1]}" "$tmp/.zcompdump" 2>/dev/null
+	export ZSH_COMPDUMP="$tmp/.zcompdump"
+fi
+
+print "============================================================"
+print " Shell startup audit"
+print "============================================================"
+print "date:   $(date)"
+print "host:   $(hostname)"
+print "user:   ${USER}"
+print "os:     $(uname -sr)"
+print "zsh:    ${ZSH_VERSION}"
+print "login:  ${SHELL}"
+print ""
+
+print "=== Machine-specific files (untracked; differ per machine) ==="
+for f in "$HOME/.env.machine.sh" "$HOME/.aliases.work.sh" "$HOME/.misc.machine.sh"; do
+	if [[ -f $f ]]; then
+		print "  present  $f  ($(wc -l < "$f" | tr -d ' ') lines)"
+	else
+		print "  absent   $f"
+	fi
+done
+print ""
+
+# --- 1. Total startup timing -------------------------------------------------
+print "=== Total interactive startup (${RUNS} runs) ==="
+local -a times
+local i start end
+for (( i = 1; i <= RUNS; i++ )); do
+	start=$EPOCHREALTIME
+	zsh -i -c exit </dev/null >/dev/null 2>&1
+	end=$EPOCHREALTIME
+	times+=( $(( (end - start) * 1000 )) )
+done
+print -l -- $times | awk '
+	{ s += $1; if (min == "" || $1 < min) min = $1; if ($1 > max) max = $1 }
+	END { printf "  min %.0f ms    mean %.0f ms    max %.0f ms\n", min, s/NR, max }'
+print ""
+
+# --- 2. Function-level profile (zprof) --------------------------------------
+print "=== Top functions by time (zprof) ==="
+cat > "$tmp/.zshenv" <<'EOF'
+zmodload zsh/zprof
+[ -f "$HOME/.zshenv" ] && source "$HOME/.zshenv"
+EOF
+cat > "$tmp/.zshrc" <<'EOF'
+[ -f "$HOME/.zshrc" ] && source "$HOME/.zshrc"
+zprof
+EOF
+ZDOTDIR="$tmp" zsh -i -c exit </dev/null 2>/dev/null \
+	| awk 'NF' | sed -n '1,20p' | sed 's/^/  /'
+print ""
+
+# --- 3. Per-command timeline (xtrace) ---------------------------------------
+print "=== Slowest individual commands (xtrace) ==="
+cat > "$tmp/.zshenv" <<'EOF'
+zmodload zsh/datetime
+setopt prompt_subst
+PS4='+$EPOCHREALTIME %N:%i> '
+[ -f "$HOME/.zshenv" ] && source "$HOME/.zshenv"
+EOF
+cat > "$tmp/.zshrc" <<'EOF'
+[ -f "$HOME/.zshrc" ] && source "$HOME/.zshrc"
+EOF
+ZDOTDIR="$tmp" zsh -i -x -c exit </dev/null 2>"$tmp/trace.log" >/dev/null
+
+awk '
+	/^\+[0-9]/ {
+		line = $0; sub(/^\+/, "", line)
+		sp = index(line, " "); ts = substr(line, 1, sp - 1) + 0
+		rest = substr(line, sp + 1); gt = index(rest, "> ")
+		if (gt == 0) next
+		loc = substr(rest, 1, gt - 1); cmd = substr(rest, gt + 2)
+		if (have) printf "%.6f\t%s\t%s\n", ts - pts, ploc, pcmd
+		pts = ts; ploc = loc; pcmd = cmd; have = 1
+	}' "$tmp/trace.log" \
+	| sort -rn | head -20 \
+	| awk -F'\t' '{ printf "  %8.1f ms  %-24s %s\n", $1 * 1000, $2, substr($3, 1, 60) }'
+print ""
+
+print "Notes:"
+print "  - Big single-command gaps in the xtrace list (eval/source lines) are"
+print "    the usual culprits: a slow completion, version manager, or network call."
+print "  - Compare this output between machines to spot what only the slow one runs"
+print "    (often something in a machine-specific file listed at the top)."
