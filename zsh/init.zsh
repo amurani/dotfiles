@@ -48,8 +48,29 @@ _cache_completion() {
     source "$cache"
 }
 
-# kubectl completion (cached). bk is work-only — cache it from ~/.misc.machine.sh.
-command -v kubectl >/dev/null 2>&1 && _cache_completion kubectl kubectl kubectl completion zsh
+# Register a tool's zsh completion *lazily*: nothing runs at startup; the real
+# completion is generated (and disk-cached via _cache_completion) the first time
+# you press <TAB> on that command. Best for slow generators (bk, kubectl, ...).
+# Usage: _lazy_completion <bin> [compfunc]
+#   <bin>       command to complete; its generator is `<bin> completion zsh`
+#   [compfunc]  the completion function that script defines (default: _<bin>)
+_lazy_completion() {
+    local bin=$1 func=${2:-_$1}
+    command -v "$bin" >/dev/null 2>&1 || return 0
+    # Stub the completion function; on first invocation it loads the real one
+    # (from cache) and re-dispatches to it.
+    eval "
+    ${func}() {
+        unfunction ${func}
+        _cache_completion ${bin} ${bin} ${bin} completion zsh
+        ${func} \"\$@\"
+    }
+    "
+    compdef "$func" "$bin"
+}
+
+# kubectl completion, lazily. bk is work-only — register it from ~/.misc.machine.sh.
+_lazy_completion kubectl
 
 # Prompt
 eval "$(starship init zsh)"
