@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# gaf — [g]it [a]dd via [f]zf
+git add $(gsp)

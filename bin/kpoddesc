@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# kpoddesc — describe a picked pod
+kubectl describe pod "$(kpod)"

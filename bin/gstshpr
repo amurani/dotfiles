@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# gstshpr — [g]it [st]a[sh] [pr]eview via fzf
+git --no-pager stash list \
+    | awk '{print $1}' | sed 's/://' \
+    | fzf --preview "git --no-pager -p show {} | bat --style=numbers --color=always --line-range :500 -p"

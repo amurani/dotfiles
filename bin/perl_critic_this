@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# perl_critic_this <file> — run perlcritic with the local profile
+PERL5LIB="lib/:inc/Perl-Critic-Policy-BCritical/lib/" perlcritic --profile=.perlcriticrc "$1"

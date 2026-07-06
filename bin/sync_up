@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# sync_up <host> <repo> <file> — scp a file up to /usr/local/git_tree/<repo>/
+scp "$3" "kmurani@$1:/usr/local/git_tree/$2/$3"

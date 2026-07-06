@@ -1,36 +1,43 @@
-export LC_ALL=en_US.UTF-8
-export TERM=xterm-256color
+# zsh/init.zsh — interactive zsh: plugins, prompt, completions.
+
+# Docker CLI completions — add to fpath BEFORE oh-my-zsh runs compinit so they
+# are picked up by the single compinit invocation.
+[ -d "$HOME/.docker/completions" ] && fpath=("$HOME/.docker/completions" $fpath)
+
+# oh-my-zsh. nvm is lazy-loaded by zsh-nvm (NVM_LAZY_LOAD) so it costs nothing at
+# startup — it loads on the first `nvm`/`node`/`npm` call. oh-my-zsh runs compinit
+# once; do not call compinit elsewhere.
 export NVM_LAZY_LOAD=true
+plugins=(git zsh-nvm zsh-autosuggestions)
+export ZSH="$HOME/.oh-my-zsh"
+source "$ZSH/oh-my-zsh.sh"
 
-plugins=(git battery zsh-nvm zsh-autosuggestions)
+# Prompt
+eval "$(starship init zsh)"
 
-# oh-my-zsh
-export ZSH="$HOME/.oh-my-zsh" # Path to your oh-my-zsh installation.
-source $ZSH/oh-my-zsh.sh
+# Smart cd
+eval "$(zoxide init zsh)"
 
-# spaceship prompt for zsh
-# if [ -f $HOME/.dotfiles/zsh/spaceship.zsh ]; then source $HOME/.dotfiles/zsh/spaceship.zsh; fi
+# fzf shell integration (keybindings + completion). fzf 0.48+ uses `fzf --zsh`;
+# fall back to a legacy ~/.fzf.zsh if present.
+if command -v fzf >/dev/null 2>&1; then
+    _fzf_init="$(fzf --zsh 2>/dev/null)"
+    if [ -n "$_fzf_init" ]; then
+        eval "$_fzf_init"
+    elif [ -f "$HOME/.fzf.zsh" ]; then
+        source "$HOME/.fzf.zsh"
+    fi
+    unset _fzf_init
+fi
 
-# starship prompt
-if [ -f $HOME/.dotfiles/zsh/starship.zsh ]; then source $HOME/.dotfiles/zsh/starship.zsh; fi
+# Syntax highlighting (catppuccin theme). Keep this near the end.
+[ -f "$HOME/.zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh" ] &&
+    source "$HOME/.zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh"
 
-# https://github.com/ajeetdsouza/zoxide
-if [ -f $HOME/.dotfiles/zsh/zoxide.zsh ]; then source $HOME/.dotfiles/zsh/zoxide.zsh; fi
+# Tool completions (zsh-specific)
+command -v kubectl >/dev/null 2>&1 && source <(kubectl completion zsh)
+command -v bk >/dev/null 2>&1 && source <(bk completion zsh)
 
-
-# syntax highlighting for zsh
-# if [ -f source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh; fi
-if [ -f $HOME/.zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh ]; then source $HOME/.zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh; fi
-
-# fzf
-if [ -f ~/.fzf.zsh  ]; then source ~/.fzf.zsh; fi
-
-# kubernetes
-if [ ! type kubectl &> /dev/null ]; then source <(kubectl completion zsh); fi # this slows zsh the fuck down
-
-# google could tools
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/kevinmurani/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/kevinmurani/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/kevinmurani/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/kevinmurani/google-cloud-sdk/completion.zsh.inc'; fi
+# Google Cloud SDK
+[ -f "$HOME/google-cloud-sdk/path.zsh.inc" ] && source "$HOME/google-cloud-sdk/path.zsh.inc"
+[ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ] && source "$HOME/google-cloud-sdk/completion.zsh.inc"

@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# whogit <author> — git log filtered by author
+git log --author="$1"

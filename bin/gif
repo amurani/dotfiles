@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# gif <pattern> — grep staged content
+git grep --cached "$1"

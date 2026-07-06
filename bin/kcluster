@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# kcluster — pick a kube context name via fzf
+kubectl config get-contexts | awk 'NR>1' | fzf | awk '{ print $2 }'

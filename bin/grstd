@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# grstd — [g]it [r]estore [st]age[d] via fzf
+git restore --staged $(gsp)

@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# run_sb_app <host> — start the SB frontend against <host>
+HOST_NAME=$1
+REACT_APP_SETTINGS_URI=${HOST_NAME}/api/settings \
+REACT_APP_API_HOST=${HOST_NAME}/ \
+REACT_APP_SUPPLY_API_HOST=$HOST_NAME \
+REACT_APP_API_URL_PREFIX=/api \
+REACT_APP_API_SEND_CREDENTIALS=false \
+REACT_APP_API_SEND_TOKEN=true \
+REACT_APP_API_QUERY_STRING=?token=hunter2 \
+    yarn start

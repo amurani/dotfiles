@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# ksvc — pick a service name via fzf
+kubectl get svc | awk 'NR>1' | fzf | awk '{ print $1 }'

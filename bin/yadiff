@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# yadiff <a> <b> — diff two strings
+diff <(printf '%s\n' "$1") <(printf '%s\n' "$2")

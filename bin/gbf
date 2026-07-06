@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# gbf — [g]it checkout [b]ranch via [f]zf
+git checkout $(gbp)

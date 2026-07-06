@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# fzyarn — pick and run a package.json script via fzf
+yarn "$(bat package.json | fx 'x => Object.keys(x.scripts).join("\n")' | fzf --preview "bat package.json | fx '.scripts[\"{}\"]'")"

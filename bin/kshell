@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# kshell — open a bash shell in a picked pod
+kubectl exec -it "$(kpod)" -- /bin/bash

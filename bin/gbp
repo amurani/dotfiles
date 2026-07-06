@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# gbp — [g]it [b]ranch [p]ick via fzf
+git --no-pager branch | sed "s/\*/ /" | fzf

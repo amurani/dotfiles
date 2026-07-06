@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# brnch — print the current branch name
+git --no-pager branch | ack '\*' | sed "s/\*//"

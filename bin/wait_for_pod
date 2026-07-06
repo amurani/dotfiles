@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# wait_for_pod <pod> — block until the pod reports Running (spinner)
+echo "Waiting until the pod is Running..."
+c=0
+patterns=("⡿" "⣟" "⣯" "⣷" "⣾" "⣽" "⣻" "⢿")
+factor=${#patterns[@]}
+index=0
+while [ "$(kubectl get pods "$1" | sed -n 2p | awk '{print $3}')" != "Running" ]; do
+    c=$((c + 1))
+    [ -n "$WAIT_TIMEOUT" ] && [ "$c" -ge "$WAIT_TIMEOUT" ] && exit 1
+    val=$((index % factor))
+    printf 'Waiting for running pod ... %s\r' "${patterns[$val]}"
+    index=$((index + 1))
+    sleep 0.1
+done
+printf '\n'

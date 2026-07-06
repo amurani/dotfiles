@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# kill_local_dml — kill the local DML MainApplication server
+ps -ef | grep "com.booking.dml.MainApplication server" | awk '{print $2; exit}' | xargs -I PID kill -9 PID

@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# psh <branch> — push --rebase
+git push origin "$1" --rebase

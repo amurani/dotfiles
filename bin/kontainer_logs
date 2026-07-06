@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# kontainer_logs — follow logs of a picked container in a picked pod
+kubectl logs -f -c "$(kontainer)" "$(kpod)"

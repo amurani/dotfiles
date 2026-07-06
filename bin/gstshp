@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# gstshp — [g]it [st]a[sh] [p]op the picked stash
+git stash pop $(gstshpr)

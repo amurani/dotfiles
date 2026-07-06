@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# fix_node_gyp — point npm at the current node's node-gyp
+npm i -g node-gyp@latest
+npm config set node_gyp "$HOME/.nvm/versions/node/$(node -v)/lib/node_modules/node-gyp/bin/node-gyp.js"

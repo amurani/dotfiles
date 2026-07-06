@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# prb <branch> — delete remote branch then re-push it
+git push origin :"$1"; git push origin "$1"

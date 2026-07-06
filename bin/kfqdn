@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# kfqdn — print the FQDN URL of a picked service
+echo "http://$(kubectl get svc "$(ksvc)" -o yaml | yq '.metadata.annotations."kubernetes.fqdn"')"

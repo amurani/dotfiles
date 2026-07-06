@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# kpod — pick a pod name via fzf
+kubectl get pods | awk 'NR>1' | fzf | awk '{ print $1 }'

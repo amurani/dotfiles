@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# gsp — [g]it [s]tatus [p]ick via fzf (with diff preview)
+git status -s | awk "{ print \$2 }" \
+    | fzf --multi --preview "git --no-pager diff {} | bat --style=numbers --color=always --line-range :500 -p"

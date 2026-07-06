@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# kontainer — pick a container name from the first pod
+kubectl get pod -o yaml | yq -o json | fx '.items[0].status.containerStatuses.map(container => container.name).join("\n")' | fzf

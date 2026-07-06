@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# run_partner_app <host> — start the partner dashboard against <host>
+HOST_NAME=$1 \
+REACT_APP_DASHBOARD_API_HOST=${HOST_NAME}/dashboard \
+REACT_APP_DASHBOARD_APP_SETTINGS_URI=${HOST_NAME}/dashboard/session \
+    yarn start

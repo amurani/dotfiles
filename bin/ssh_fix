@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# ssh_fix <host> — drop the control-master connection and reconnect with agent
+ssh -O exit "$1"; ssh -A "$1"

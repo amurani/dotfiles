@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# docker_clean — remove exited containers and dangling images
+docker rm $(docker ps -q -f 'status=exited')
+docker rmi $(docker images -q -f 'dangling=true')
