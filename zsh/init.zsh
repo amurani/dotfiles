@@ -15,16 +15,21 @@ source "$ZSH/oh-my-zsh.sh"
 # replaces the zsh-nvm plugin, whose global-binary enumeration cost ~300ms at
 # startup on machines with many global packages.
 #
-# If you routinely invoke a global tool *before* node/npm in a fresh shell (e.g.
-# `cody`, `pn`), add it as a trigger: export NVM_LAZY_EXTRA_CMDS="cody pn"
-# (put that in ~/.env.machine.sh so it stays machine-specific).
+# Any of these commands, called in a fresh shell, loads nvm and then runs for
+# real. Global tools installed via npm/yarn aren't on PATH until nvm loads, so
+# they must be listed here or the first call fails with "command not found".
+#
+# NVM_LAZY_CMDS holds the defaults below. For a machine-specific tool (e.g.
+# work-only `cody`, `pn`), add it via NVM_LAZY_EXTRA_CMDS in ~/.env.machine.sh:
+#   export NVM_LAZY_EXTRA_CMDS="cody pn"
+NVM_LAZY_CMDS="nvm node npm npx corepack yarn pnpm"
 if [[ -s "$NVM_DIR/nvm.sh" ]]; then
     _load_nvm() {
-        unfunction nvm node npm npx corepack _load_nvm ${=NVM_LAZY_EXTRA_CMDS} 2>/dev/null
+        unfunction ${=NVM_LAZY_CMDS} ${=NVM_LAZY_EXTRA_CMDS} _load_nvm 2>/dev/null
         source "$NVM_DIR/nvm.sh"
         [[ -s "$NVM_DIR/bash_completion" ]] && source "$NVM_DIR/bash_completion"
     }
-    for _cmd in nvm node npm npx corepack ${=NVM_LAZY_EXTRA_CMDS}; do
+    for _cmd in ${=NVM_LAZY_CMDS} ${=NVM_LAZY_EXTRA_CMDS}; do
         eval "${_cmd}() { _load_nvm; ${_cmd} \"\$@\"; }"
     done
     unset _cmd
