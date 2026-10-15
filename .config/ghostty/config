@@ -18,3 +18,4 @@ unfocused-split-opacity = 0.9
 # config:other
 copy-on-select = clipboard
 keybind = shift+enter=text:\x1b\r
+keybind = super+v=paste_from_clipboard
